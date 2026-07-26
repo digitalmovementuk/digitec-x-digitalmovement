@@ -1,0 +1,2720 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Digitec – Angebot zusammenstellen | Digital Movement</title>
+  <meta name="description" content="LinkedIn, SEO und Full-Stack Website Design &amp; Development für Dr. B.-DIGITEC auswählen und Preise direkt zusammenfassen.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="dm-order-endpoint" content="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="../digitec-x-digitalmovement/favicon.svg" type="image/svg+xml">
+  <style>
+    :root{
+      --ink:#1a0e2e;
+      --ink-2:#372945;
+      --muted:#665d6e;
+      --cream:#fbf9f5;
+      --paper:#fff;
+      --line:#e7e1eb;
+      --purple:#6125a8;
+      --pink:#ec178d;
+      --yellow:#ffd24a;
+      --orange:#f59425;
+      --blue:#0a66c2;
+      --success:#11845b;
+      --success-ink:#0d7350;
+      --gradient:linear-gradient(110deg,var(--yellow) 0%,var(--orange) 30%,#ff2d7a 62%,#9d4edd 100%);
+      --gradient-cta:linear-gradient(110deg,var(--yellow) 0%,var(--orange) 30%,#ff4e8d 62%,#b06ee8 100%);
+      --gradient-text:linear-gradient(110deg,#b95f02 0%,#e5137f 55%,#8f43d6 100%);
+      --display:"Plus Jakarta Sans",sans-serif;
+      --body:"Inter Tight",sans-serif;
+      --mono:"JetBrains Mono",monospace;
+      --shadow-sm:0 8px 28px rgba(26,14,46,.07);
+      --shadow-lg:0 28px 80px rgba(26,14,46,.13);
+      --radius:28px;
+      --ease:cubic-bezier(.2,.8,.2,1);
+      --type-hero:clamp(52px,5.2vw,76px);
+      --type-section:clamp(40px,4.2vw,60px);
+      --type-card-xl:26px;
+      --type-card-lg:22px;
+      --type-card:18px;
+      --type-body-lg:18px;
+      --type-body:15px;
+      --type-small:13px;
+      --type-label:10px;
+      --leading-tight:1.08;
+      --leading-body:1.5;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:16px;line-height:var(--leading-body)}
+    button,a{font:inherit}
+    button{color:inherit}
+    img{display:block;max-width:100%}
+    .skip-link{position:fixed;z-index:1000;top:10px;left:10px;transform:translateY(-150%);padding:12px 18px;border-radius:12px;background:var(--ink);color:#fff}
+    .skip-link:focus{transform:none}
+    .wrap{width:min(1240px,calc(100% - 48px));margin-inline:auto}
+
+    .masthead{
+      position:fixed;z-index:100;inset:0 0 auto;
+      height:72px;border-bottom:1px solid rgba(255,255,255,.16);
+      background:rgba(251,249,245,.78);backdrop-filter:blur(18px) saturate(145%);
+      transition:background .3s ease,box-shadow .3s ease,border-color .3s ease;
+    }
+    .masthead.scrolled{background:rgba(255,255,255,.9);border-color:var(--line);box-shadow:0 10px 34px rgba(26,14,46,.07)}
+    .masthead .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:15px;text-decoration:none;color:var(--ink)}
+    .brand img{object-fit:contain}
+    .brand .dm-logo{width:156px;height:34px}
+    .brand .client-logo{width:142px;height:42px}
+    .brand-divider{width:1px;height:30px;background:var(--line)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .nav-link{color:var(--ink-2);font-size:14px;font-weight:600;text-decoration:none}
+    .cart-overview{position:relative}
+    .cart-chip{
+      display:flex;align-items:center;gap:9px;min-height:42px;padding:8px 14px;border:1px solid var(--line);
+      border-radius:999px;background:#fff;text-decoration:none;color:var(--ink);box-shadow:var(--shadow-sm);
+    }
+    .cart-chip svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .cart-count{display:grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--ink);color:#fff;font:600 11px var(--mono)}
+    .cart-popover{
+      position:absolute;top:calc(100% + 12px);right:0;width:370px;padding:18px;border:1px solid var(--line);border-radius:22px;
+      background:#fff;color:var(--ink);box-shadow:0 28px 70px rgba(26,14,46,.18);opacity:0;visibility:hidden;
+      transform:translateY(-8px);transition:opacity .2s ease,visibility .2s ease,transform .2s var(--ease);pointer-events:none;
+    }
+    .cart-overview:hover .cart-popover,.cart-overview:focus-within .cart-popover{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+    .popover-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+    .popover-head strong{font:700 15px var(--display)}
+    .popover-head span{color:var(--muted);font-size:12px}
+    .popover-empty{margin:14px 0;color:var(--muted);font-size:13px}
+    .popover-items{display:grid;gap:7px;margin:12px 0}
+    .popover-item{display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:13px}
+    .popover-item span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .popover-item strong{font-family:var(--display);white-space:nowrap}
+    .popover-totals{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+    .popover-total{padding:10px;border-radius:13px;background:#f6f3f7}
+    .popover-total span{display:block;color:var(--muted);font:500 9px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .popover-total strong{display:block;margin-top:3px;font:700 17px var(--display)}
+    .popover-button{display:flex;justify-content:center;margin-top:10px;padding:10px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;font-weight:700;text-decoration:none}
+
+    .hero{
+      min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;
+      padding:112px 0 72px;background:
+        radial-gradient(circle at 7% 12%,rgba(255,210,74,.34),transparent 29%),
+        radial-gradient(circle at 88% 28%,rgba(255,45,122,.14),transparent 34%),
+        radial-gradient(circle at 68% 100%,rgba(74,30,112,.1),transparent 34%),
+        var(--cream);
+    }
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(390px,.97fr);align-items:center;gap:clamp(44px,6vw,82px)}
+    .hero-brands{display:flex;align-items:center;gap:15px;margin-bottom:22px}
+    .hero-brands img{object-fit:contain}
+    .hero-digitec{width:174px;height:58px}
+    .hero-dm{width:164px;height:40px}
+    .hero-brand-divider{width:1px;height:36px;background:var(--line)}
+    .eyebrow{display:flex;align-items:center;gap:10px;margin:0;color:var(--ink-2);font:600 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .eyebrow-dot{width:9px;height:9px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 6px rgba(236,23,141,.11)}
+    h1{max-width:11ch;margin:22px 0 18px;font:800 var(--type-hero)/.98 var(--display);letter-spacing:-.055em}
+    .gradient-text{color:transparent;background:var(--gradient-text);background-clip:text;-webkit-background-clip:text}
+    .platform-note{display:grid;gap:8px;width:max-content;max-width:100%;padding:10px;border:1px solid rgba(91,33,182,.12);border-radius:16px;background:rgba(255,255,255,.76);box-shadow:var(--shadow-sm);backdrop-filter:blur(10px)}
+    .platform-note>span{padding-left:3px;font-family:var(--display);font-size:12px;font-weight:700}
+    .platform-brands{display:grid;grid-template-columns:repeat(5,auto);gap:5px}
+    .platform-brand{display:flex;align-items:center;justify-content:center;height:30px;padding:5px 8px;border:1px solid #ece6ef;border-radius:9px;background:#fff}
+    .platform-brand.google img{width:48px}
+    .platform-brand.chatgpt img,.platform-brand.perplexity img{width:16px;height:16px;margin-right:4px}
+    .platform-brand.chatgpt strong,.platform-brand.perplexity strong{font:700 8px var(--display)}
+    .platform-brand.claude img{width:52px}
+    .platform-brand.linkedin img{width:58px}
+    .hero-actions{margin-top:27px}
+    .button{
+      display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:13px 20px;
+      border:0;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;text-decoration:none;
+      box-shadow:0 15px 34px rgba(26,14,46,.2);transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+    }
+    .button:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(26,14,46,.25)}
+    .hero-trust{display:flex;align-items:center;gap:13px;margin-top:20px}
+    .hero-people{display:flex;align-items:center}
+    .hero-people img{width:48px;height:48px;border:3px solid #fff;border-radius:50%;object-fit:cover;box-shadow:0 8px 22px rgba(26,14,46,.16)}
+    .hero-people img+img{margin-left:-12px}
+    .hero-people .dr-beckers{object-position:21% 23%}
+    .hero-trust-copy{display:grid;gap:2px}
+    .hero-trust-copy strong{font-family:var(--display);font-size:13px}
+    .hero-trust-copy a{color:var(--muted);font-size:12px;text-decoration:none}
+    .focus-card{
+      position:relative;min-height:470px;display:grid;place-items:center;overflow:hidden;padding:36px;
+      border:1px solid rgba(255,255,255,.6);border-radius:38px;background:linear-gradient(145deg,#1a0e2e,#3b1457 58%,#6b1d68);
+      box-shadow:var(--shadow-lg);isolation:isolate;
+    }
+    .focus-card::before,.focus-card::after{content:"";position:absolute;border:1px solid rgba(255,255,255,.16);border-radius:44% 56% 63% 37%/48% 35% 65% 52%;inset:11%;transform:rotate(18deg)}
+    .focus-card::after{inset:25%;border-color:rgba(255,210,74,.55);transform:rotate(-22deg)}
+    .orbit{position:absolute;inset:50% auto auto 50%;width:325px;height:325px;transform:translate(-50%,-50%);animation:spin 26s linear infinite}
+    .orbit-item{
+      position:absolute;display:grid;place-items:center;width:66px;height:66px;border:1px solid rgba(255,255,255,.2);
+      border-radius:20px;background:rgba(255,255,255,.1);color:#fff;font:700 10px var(--display);backdrop-filter:blur(10px);
+    }
+    .orbit-item:nth-child(1){top:0;left:50%;transform:translateX(-50%)}
+    .orbit-item:nth-child(2){right:0;top:50%;transform:translateY(-50%)}
+    .orbit-item:nth-child(3){bottom:0;left:50%;transform:translateX(-50%)}
+    .orbit-item:nth-child(4){left:0;top:50%;transform:translateY(-50%)}
+    .focus-core{position:relative;z-index:2;display:grid;place-items:center;width:190px;height:190px;padding:22px;border-radius:50%;background:#fff;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,.24)}
+    .focus-core img{width:132px}
+    .focus-core span{font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    @keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+    .scroll-cue{position:absolute;bottom:24px;left:50%;display:flex;align-items:center;gap:9px;transform:translateX(-50%);color:var(--muted);font:600 10px var(--mono);letter-spacing:.1em;text-decoration:none;text-transform:uppercase}
+    .scroll-cue i{width:7px;height:7px;border-radius:50%;background:var(--pink)}
+
+    .pricing{position:relative;overflow:hidden;padding:92px 0 64px;background:
+      radial-gradient(circle at 8% 15%,rgba(255,210,74,.14),transparent 25%),
+      radial-gradient(circle at 92% 70%,rgba(157,78,221,.11),transparent 28%),
+      linear-gradient(180deg,#faf8fb 0%,#f4f0f6 100%)}
+    .pricing::before{
+      content:"";position:absolute;inset:0;pointer-events:none;opacity:.42;
+      background-image:radial-gradient(rgba(97,37,168,.13) .7px,transparent .7px);
+      background-size:22px 22px;mask-image:linear-gradient(to bottom,transparent,#000 24%,#000 76%,transparent);
+    }
+    .pricing>.wrap{position:relative;z-index:1}
+    .pricing .section-kicker::before{content:"02"}
+    .section-head{max-width:760px;margin:0 auto 28px;text-align:center}
+    .section-kicker{display:inline-flex;align-items:center;gap:9px;margin-bottom:15px;color:var(--purple);font:600 var(--type-label) var(--mono);letter-spacing:.12em;text-transform:uppercase}
+    .section-kicker::before{content:"01";display:grid;place-items:center;width:30px;height:30px;border:1px solid rgba(97,37,168,.2);border-radius:50%;background:#fff}
+    h2{margin:0;font:800 var(--type-section)/1.03 var(--display);letter-spacing:-.045em}
+    .section-head p{max-width:600px;margin:18px auto 0;color:var(--muted);font-size:var(--type-body-lg);line-height:1.5}
+    .overview-jump{color:var(--purple);font-weight:700;text-decoration:underline;text-decoration-color:rgba(97,37,168,.24);text-underline-offset:3px}
+
+    .pricing-layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:24px;align-items:start}
+    .service-grid{display:grid;grid-template-columns:1fr;align-items:stretch;gap:14px}
+    .service-card{
+      position:relative;display:grid;grid-template-columns:190px minmax(0,1fr);column-gap:22px;align-items:start;min-width:0;padding:24px;border:1px solid var(--line);
+      overflow:hidden;border-radius:var(--radius);background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(255,255,255,.88));
+      box-shadow:0 1px 0 rgba(255,255,255,.95) inset,0 14px 40px rgba(26,14,46,.075);
+      transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s ease;
+    }
+    .service-card:hover{transform:translateY(-4px);border-color:#d9cfdf;box-shadow:0 24px 60px rgba(26,14,46,.12)}
+    .service-card.has-selection{border-color:rgba(97,37,168,.4);background:linear-gradient(145deg,#fff,#fcf9ff);box-shadow:0 22px 60px rgba(97,37,168,.14)}
+    .service-card.has-selection::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--gradient)}
+    .service-index{
+      position:absolute;top:17px;right:18px;display:grid;place-items:center;width:30px;height:30px;border:1px solid #e8e0ed;
+      border-radius:999px;background:#faf8fb;color:#6b6274;font:600 9px var(--mono);letter-spacing:.04em;
+    }
+    .service-top{display:grid;align-content:start;justify-items:start;gap:12px;margin:0}
+    .service-title{display:flex;align-items:center;gap:12px;margin:0;font:700 24px/1.15 var(--display);letter-spacing:-.025em}
+    .service-icon{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:13px;background:#f4effa;color:var(--purple)}
+    .service-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7}
+    .currency{color:var(--muted);font:600 var(--type-label) var(--mono);letter-spacing:.1em}
+    .options{display:grid;gap:10px}
+    .service-card[data-card="linkedin"] .options{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .service-card[data-card="seo"] .options{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .service-card[data-card="website"] .options{grid-template-columns:1fr}
+    .service-card[data-card="seo"] .option{grid-template-columns:22px minmax(0,1fr)}
+    .service-card[data-card="seo"] .option-price{grid-column:2;display:flex;align-items:baseline;gap:5px;text-align:left}
+    .service-card[data-card="seo"] .option-price strong,.service-card[data-card="seo"] .option-price small{display:inline}
+    .option{
+      width:100%;min-height:90px;display:grid;grid-template-columns:24px minmax(0,1fr) auto;align-items:center;gap:13px;
+      padding:16px;border:1px solid #e5dee9;border-radius:19px;background:linear-gradient(145deg,#fff,#fcfafc);text-align:left;cursor:pointer;
+      box-shadow:0 1px 0 rgba(255,255,255,.9) inset;
+      transition:border-color .2s ease,background .2s ease,transform .2s ease,box-shadow .2s ease;
+    }
+    .option:hover{transform:translateY(-2px);border-color:#cfc4d7;box-shadow:0 9px 24px rgba(26,14,46,.07)}
+    .option:focus-visible,.cart-continue:focus-visible,.button:focus-visible,.cart-chip:focus-visible{outline:3px solid rgba(97,37,168,.28);outline-offset:3px}
+    .option[aria-pressed="true"]{border-color:var(--purple);background:linear-gradient(145deg,#fff,#f8f1ff);box-shadow:inset 0 0 0 1px var(--purple),0 12px 28px rgba(97,37,168,.1)}
+    .selector{display:grid;place-items:center;width:22px;height:22px;border:1.5px solid #b9afc1;border-radius:7px;background:#fff}
+    .selector::after{content:"";width:9px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:translateY(-1px) rotate(-45deg);opacity:0}
+    .option.radio .selector{border-radius:50%}
+    .option.radio .selector::after{width:9px;height:9px;border:0;border-radius:50%;transform:none}
+    .option[aria-pressed="true"] .selector{border-color:var(--purple);background:var(--purple)}
+    .option[aria-pressed="true"] .selector::after{opacity:1}
+    .option-copy{min-width:0}
+    .option-name{display:block;font-family:var(--display);font-size:17px;font-weight:700;line-height:1.28;hyphens:auto;overflow-wrap:break-word}
+    .option-detail{display:block;margin-top:4px;color:var(--muted);font-size:14px;line-height:1.4}
+    .option-price{text-align:right;white-space:nowrap}
+    .option-price strong{display:block;font:700 21px var(--display);letter-spacing:-.03em}
+    .option-price small{display:block;color:var(--muted);font-size:12px}
+    .card-foot{grid-column:2;margin:0;padding-top:12px;color:var(--muted);font-size:12px}
+    .card-foot strong{color:var(--ink);font-weight:600}
+    .bundle-disclaimer{
+      grid-column:2;
+      display:flex;align-items:flex-start;gap:10px;margin-top:14px;padding:13px 14px;border:1px solid rgba(97,37,168,.16);
+      border-radius:16px;background:#f7f1ff;color:var(--ink-2);font-size:13px;line-height:1.42;
+    }
+    .bundle-disclaimer svg{flex:0 0 17px;width:17px;height:17px;fill:none;stroke:var(--purple);stroke-width:1.8}
+    .bundle-disclaimer strong{color:var(--purple)}
+
+    .discount-selector{
+      position:relative;display:grid;grid-template-columns:1fr;gap:10px;align-items:center;margin-top:2px;padding:16px;
+      overflow:hidden;border:1px solid #a9dec7;border-radius:20px;background:linear-gradient(145deg,#eefaf4,#e4f6ed);
+      box-shadow:0 10px 24px rgba(17,132,91,.08);
+    }
+    .discount-selector::after{content:"";position:absolute;right:-26px;top:-42px;width:104px;height:104px;border-radius:50%;background:rgba(17,132,91,.07)}
+    .discount-intro{min-width:0}
+    .discount-intro span{display:block;color:var(--success-ink);font:600 var(--type-label) var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .discount-intro strong{display:block;margin-top:2px;color:var(--ink);font:700 15px var(--display)}
+    .discount-badge{position:absolute;z-index:1;top:14px;right:14px;padding:5px 8px;border-radius:999px;background:var(--success);color:#fff;font:600 9px var(--mono);letter-spacing:.03em}
+    .discount-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .discount-option{
+      min-height:54px;display:grid;grid-template-columns:20px minmax(0,1fr);align-items:center;gap:9px;padding:9px 11px;
+      position:relative;z-index:1;border:1px solid #c3e5d4;border-radius:15px;background:rgba(255,255,255,.9);color:var(--ink);text-align:left;cursor:pointer;
+      transition:border-color .2s ease,background .2s ease,transform .2s ease;
+    }
+    .discount-option:hover{transform:translateY(-1px);border-color:#77c8a4}
+    .discount-option:disabled{
+      cursor:not-allowed;opacity:.58;border-color:#dbe9e2;background:rgba(255,255,255,.62);box-shadow:none;
+    }
+    .discount-option:disabled:hover{transform:none;border-color:#dbe9e2}
+    .discount-option:disabled .selector{border-color:#b9c9c1;background:#edf3f0}
+    .discount-option[aria-pressed="true"]{border-color:var(--success);background:#fff;box-shadow:inset 0 0 0 1px var(--success)}
+    .discount-option[aria-pressed="true"] .selector{border-color:var(--success);background:var(--success)}
+    .discount-option[aria-pressed="true"] .selector::after{border-color:#fff}
+    .discount-option[aria-pressed="true"] .selector::after{opacity:1}
+    .discount-copy strong{display:block;font:700 14px/1.25 var(--display)}
+    .discount-copy small{display:block;margin-top:2px;color:var(--muted);font-size:11px;line-height:1.25}
+
+    .cart{
+      position:sticky;top:94px;display:flex;flex-direction:column;gap:16px;align-items:stretch;min-height:0;margin:0;padding:22px;
+      border:1px solid transparent;border-radius:28px;background:linear-gradient(#fff,#fff) padding-box,var(--gradient) border-box;
+      color:var(--ink);box-shadow:0 30px 75px rgba(26,14,46,.14);
+    }
+    .cart-heading{display:flex;align-items:center;gap:11px;margin-bottom:10px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+    .cart-heading-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:#f3ecfa;color:var(--purple)}
+    .cart-heading svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .cart-kicker{display:block;margin-bottom:1px;color:var(--muted);font:600 9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .cart-heading h3{margin:0;font:700 18px var(--display)}
+    .cart-empty{margin:0;padding:16px;border:1px dashed #d5cbdc;border-radius:16px;background:#fbfafc;color:var(--muted);font-size:13px;text-align:center}
+    .cart-items{display:grid;gap:2px}
+    .cart-item{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;padding:7px 2px;border-bottom:1px solid #f0ebf2;font-size:13px}
+    .cart-item-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:8px}
+    .cart-item-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .cart-item-price{color:var(--ink);font:700 12px var(--display);white-space:nowrap}
+    .cart-item button{display:grid;place-items:center;width:20px;height:20px;padding:0;border:0;border-radius:50%;background:#ebe3f2;color:var(--purple);cursor:pointer}
+    .cart-discount{display:flex;align-items:center;gap:8px;margin:7px 0 0;color:var(--success-ink);font-size:12px;font-weight:600}
+    .cart-discount[hidden]{display:none}
+    .cart-side{display:grid;gap:12px;margin-top:auto;padding-top:2px}
+    .totals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .total{min-width:138px;padding:13px 14px;border:1px solid var(--line);border-radius:18px;background:#f6f3f7}
+    .total:first-child{border-color:var(--ink);background:var(--ink);color:#fff;box-shadow:0 12px 28px rgba(26,14,46,.16)}
+    .total:first-child span{color:rgba(255,255,255,.64)}
+    .total span{display:block;color:var(--muted);font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .total strong{display:block;margin-top:3px;font:700 24px var(--display);letter-spacing:-.04em}
+    .total .total-saving{display:block;margin-top:3px;color:var(--success-ink);font-size:11px;font-weight:600}
+    .total .total-saving[hidden]{display:none}
+    .cart-continue{
+      width:100%;min-height:52px;padding:12px 17px;border:0;border-radius:17px;background:var(--gradient-cta);color:var(--ink);
+      font-weight:800;cursor:pointer;box-shadow:0 12px 26px rgba(236,23,141,.14);transition:transform .2s var(--ease),opacity .2s ease;white-space:nowrap;
+    }
+    .cart-continue:hover:not(:disabled){transform:translateY(-2px)}
+    .cart-continue:disabled{cursor:not-allowed;filter:grayscale(.6);opacity:.45}
+    .pricing-note{margin:16px 2px 0;color:var(--muted);font-size:12px;text-align:center}
+    .mobile-service-nav,.mobile-price-sheet{display:none}
+
+    .service-overview{
+      position:relative;padding:112px 0 120px;overflow:hidden;background:
+        radial-gradient(circle at 92% 8%,rgba(255,210,74,.12),transparent 23%),
+        linear-gradient(180deg,#fff 0%,#fbf9fc 100%);
+    }
+    .service-overview::before{
+      content:"";position:absolute;left:-120px;top:28%;width:290px;height:290px;border:1px solid rgba(97,37,168,.08);
+      border-radius:44% 56% 63% 37%/48% 35% 65% 52%;transform:rotate(18deg);pointer-events:none;
+    }
+    .service-overview>.wrap{position:relative;z-index:1}
+    .service-overview .section-kicker::before{content:"01"}
+    .overview-head{margin-bottom:38px}
+    .service-detail-grid{display:grid;gap:20px}
+    .service-detail-card{
+      --service-color:var(--purple);--service-tint:#f6f0fb;
+      position:relative;display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:14px 22px;
+      padding:30px;border:1px solid var(--line);border-radius:32px;background:rgba(255,255,255,.94);
+      box-shadow:0 18px 52px rgba(26,14,46,.075);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s ease;
+    }
+    .service-detail-card[data-service="linkedin"]{--service-color:#0a66c2;--service-tint:#edf6ff}
+    .service-detail-card[data-service="website"]{--service-color:#d66a1c;--service-tint:#fff5e9}
+    .service-detail-card:hover{transform:translateY(-3px);box-shadow:0 26px 66px rgba(26,14,46,.11)}
+    .service-detail-card.is-selected{border-color:color-mix(in srgb,var(--service-color) 42%,#fff)}
+    .service-detail-card.is-selected::before{
+      content:"";position:absolute;inset:0 auto 0 0;width:5px;border-radius:32px 0 0 32px;background:var(--service-color);
+    }
+    .service-detail-head{grid-column:1/-1;display:grid;grid-template-columns:56px minmax(0,1fr) auto;align-items:center;gap:17px;margin-bottom:6px}
+    .service-detail-icon{
+      display:grid;place-items:center;width:56px;height:56px;border-radius:18px;background:var(--service-tint);color:var(--service-color);
+    }
+    .service-detail-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7}
+    .service-detail-title span{display:block;margin-bottom:5px;color:var(--muted);font:600 var(--type-label) var(--mono);letter-spacing:.09em;text-transform:uppercase}
+    .service-detail-title h3{margin:0;font:750 var(--type-card-xl)/1.15 var(--display);letter-spacing:-.035em}
+    .service-detail-title p{margin:6px 0 0;color:var(--muted);font-size:var(--type-body);line-height:1.45}
+    .service-platform-proof{
+      display:flex;align-items:center;gap:9px;width:max-content;max-width:100%;margin-top:11px;padding:7px 9px;
+      border:1px solid color-mix(in srgb,var(--service-color) 18%,#fff);border-radius:13px;background:var(--service-tint);
+      color:var(--ink-2);font-size:12px;font-weight:700;line-height:1.35;
+    }
+    .service-platform-proof.linkedin img{width:64px;height:18px;object-fit:contain}
+    .service-platform-proof.seo{flex-wrap:nowrap;width:fit-content}
+    .service-platform-proof .proof-label{color:var(--service-color);font:650 10px var(--mono);letter-spacing:.04em;text-transform:uppercase}
+    .service-platform-proof .proof-brands{display:flex;align-items:center;gap:5px;margin:0;flex-wrap:nowrap}
+    .service-platform-proof .proof-brand{
+      display:inline-flex;align-items:center;justify-content:center;gap:4px;height:25px;padding:4px 7px;
+      margin:0;border:1px solid rgba(26,14,46,.07);border-radius:8px;background:#fff;color:var(--ink);
+      font:700 8px var(--display);letter-spacing:0;text-transform:none;
+    }
+    .proof-brand.google img{width:43px}
+    .proof-brand.chatgpt img,.proof-brand.perplexity img{width:14px;height:14px}
+    .proof-brand.claude img{width:45px}
+    .overview-status{
+      display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid var(--line);border-radius:999px;
+      background:#faf8fb;color:var(--muted);font-size:12px;font-weight:700;white-space:nowrap;
+    }
+    .overview-status::before{content:"";width:7px;height:7px;border-radius:50%;background:#bdb3c3}
+    .service-detail-card.is-selected .overview-status{border-color:rgba(17,132,91,.22);background:#eaf8f1;color:var(--success)}
+    .service-detail-card.is-selected .overview-status::before{background:var(--success);box-shadow:0 0 0 4px rgba(17,132,91,.1)}
+    .service-journey{
+      position:relative;display:grid;grid-template-columns:1fr;gap:10px;margin:26px 0 20px;padding:18px;
+      border-radius:22px;background:#f7f4f8;
+    }
+    .service-detail-card>.service-journey{grid-column:1;grid-row:2;margin:0}
+    .service-journey::before{
+      content:"";position:absolute;top:34px;bottom:34px;left:35px;width:2px;
+      background:linear-gradient(180deg,var(--service-color),color-mix(in srgb,var(--service-color) 35%,#fff));
+    }
+    .journey-step{
+      position:relative;z-index:1;display:grid;grid-template-columns:36px minmax(0,1fr);
+      align-items:center;column-gap:13px;row-gap:2px;min-height:58px;text-align:left;
+    }
+    .journey-step i{
+      display:grid;place-items:center;width:36px;height:36px;border:5px solid #f7f4f8;border-radius:50%;
+      background:var(--service-color);color:#fff;font:600 9px var(--mono);font-style:normal;
+    }
+    .journey-step strong{align-self:end;font:700 14px var(--display)}
+    .journey-step span{grid-column:2;align-self:start;max-width:34ch;color:var(--muted);font-size:12px;line-height:1.4}
+    .business-impact{
+      position:relative;display:grid;grid-template-columns:48px minmax(270px,.85fr) minmax(0,1.15fr);align-items:center;gap:16px;
+      margin:0 0 20px;padding:17px 18px;overflow:hidden;border:1px solid color-mix(in srgb,var(--service-color) 24%,#fff);
+      border-radius:21px;background:linear-gradient(135deg,var(--service-tint),#fff);box-shadow:0 10px 28px color-mix(in srgb,var(--service-color) 7%,transparent);
+    }
+    .service-detail-card>.business-impact{
+      grid-column:1;grid-row:3/5;grid-template-columns:48px minmax(0,1fr);align-content:center;margin:0;
+    }
+    .service-detail-card>.business-impact .impact-points{grid-column:1/-1}
+    .business-impact::after{
+      content:"";position:absolute;right:-34px;top:-50px;width:128px;height:128px;border-radius:50%;
+      background:color-mix(in srgb,var(--service-color) 8%,transparent);pointer-events:none;
+    }
+    .impact-icon{
+      display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:#fff;color:var(--service-color);
+      box-shadow:0 7px 18px color-mix(in srgb,var(--service-color) 12%,transparent);
+    }
+    .impact-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .impact-copy{min-width:0}
+    .impact-copy>span{display:block;color:var(--service-color);font:600 9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .impact-copy h4{margin:5px 0 4px;font:750 var(--type-card)/1.2 var(--display);letter-spacing:-.02em}
+    .impact-copy p{margin:0;color:var(--muted);font-size:13px;line-height:1.42}
+    .impact-points{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+    .impact-point{
+      min-height:48px;display:flex;align-items:center;gap:8px;padding:9px;border:1px solid rgba(255,255,255,.9);
+      border-radius:13px;background:rgba(255,255,255,.78);color:var(--ink-2);font-size:12px;font-weight:700;line-height:1.3;
+    }
+    .impact-point::before{
+      content:"✓";flex:0 0 20px;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;
+      background:var(--service-color);color:#fff;font-size:9px;
+    }
+    .inclusion-label{margin:0 0 10px;color:var(--muted);font:600 var(--type-label) var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .service-detail-card>.inclusion-label{grid-column:2;grid-row:2;align-self:end;margin:0}
+    .service-inclusions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .service-detail-card>.service-inclusions{grid-column:2;grid-row:3;grid-template-columns:repeat(2,minmax(0,1fr))}
+    .inclusion{
+      min-height:106px;display:grid;align-content:start;gap:8px;padding:15px;border:1px solid #ebe5ee;border-radius:18px;background:#fff;
+    }
+    .inclusion i{
+      display:grid;place-items:center;width:27px;height:27px;border-radius:9px;background:var(--service-tint);
+      color:var(--service-color);font-size:13px;font-style:normal;font-weight:800;
+    }
+    .inclusion strong{font:700 15px/1.28 var(--display)}
+    .inclusion span{color:var(--muted);font-size:13px;line-height:1.4}
+    .service-more{margin-top:14px;border:1px solid var(--line);border-radius:18px;background:#fcfbfd;overflow:hidden}
+    .service-detail-card>.service-more{grid-column:2;grid-row:4;margin:0}
+    .service-more summary{
+      min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 16px;
+      list-style:none;cursor:pointer;font-size:14px;font-weight:700;
+    }
+    .service-more summary::-webkit-details-marker{display:none}
+    .summary-open{display:none}
+    .service-more[open] .summary-closed{display:none}
+    .service-more[open] .summary-open{display:inline}
+    .service-more summary::after{
+      content:"+";display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#eee8f2;color:var(--purple);
+      font-size:17px;transition:transform .25s var(--ease);
+    }
+    .service-more[open] summary::after{transform:rotate(45deg)}
+    .service-more-content{padding:2px 16px 17px}
+    .service-more-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px 22px;padding-top:14px;border-top:1px solid var(--line)}
+    .service-more-item{display:flex;align-items:flex-start;gap:9px;color:var(--ink-2);font-size:13px;line-height:1.45}
+    .service-more-item::before{
+      content:"✓";flex:0 0 20px;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;
+      background:var(--service-tint);color:var(--service-color);font-size:10px;font-weight:800;
+    }
+    .service-detail-footer{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:4px;padding-top:16px;border-top:1px solid var(--line)}
+    .service-detail-footer p{margin:0;color:var(--muted);font-size:13px}
+    .service-select-link{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 15px;border:1px solid #d9cfdf;
+      border-radius:999px;background:#fff;color:var(--ink);font-size:13px;font-weight:800;text-decoration:none;
+      transition:transform .2s var(--ease),border-color .2s ease,box-shadow .2s ease;
+    }
+    .service-select-link:hover{transform:translateY(-2px);border-color:var(--service-color);box-shadow:0 9px 22px rgba(26,14,46,.08)}
+    .service-select-link::after{content:"↓";color:var(--service-color)}
+
+    .checkout{padding:112px 0 96px;background:#f6f3f7}
+    .checkout[hidden],.confirmation[hidden],.mobile-checkout-bar[hidden]{display:none!important}
+    .checkout-progress{
+      display:grid;grid-template-columns:repeat(3,1fr);max-width:760px;margin:0 auto 36px;position:relative;
+    }
+    .checkout-progress::before{content:"";position:absolute;z-index:0;top:17px;left:16.66%;right:16.66%;height:2px;background:var(--line)}
+    .progress-step{position:relative;z-index:1;display:grid;justify-items:center;gap:7px;color:var(--muted);font-size:13px;font-weight:600}
+    .progress-step i{display:grid;place-items:center;width:36px;height:36px;border:2px solid var(--line);border-radius:50%;background:#f6f3f7;font:600 10px var(--mono);font-style:normal}
+    .progress-step.done i{border-color:var(--success);background:var(--success);color:#fff}
+    .progress-step.active{color:var(--ink)}
+    .progress-step.active i{border-color:var(--purple);background:#fff;color:var(--purple);box-shadow:0 0 0 5px rgba(97,37,168,.08)}
+    .checkout-layout{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:24px;align-items:start}
+    .checkout-stack{display:grid;gap:16px}
+    .checkout-card{padding:28px;border:1px solid var(--line);border-radius:26px;background:#fff;box-shadow:var(--shadow-sm)}
+    .checkout-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:22px}
+    .checkout-card-head h2,.checkout-card-head h3{margin:0;font:700 26px/1.15 var(--display);letter-spacing:-.03em}
+    .checkout-card-head p{margin:6px 0 0;color:var(--muted);font-size:14px}
+    .secure-label{display:flex;align-items:center;gap:6px;color:var(--success);font:600 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+    .secure-label svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8}
+    .checkout-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:grid;gap:6px;text-align:left}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:13px;font-weight:700}
+    .field input{
+      width:100%;height:48px;padding:0 14px;border:1px solid #d8d1dd;border-radius:13px;background:#fff;color:var(--ink);
+      font:500 16px var(--body);transition:border-color .2s ease,box-shadow .2s ease;
+    }
+    .field input:focus{outline:0;border-color:var(--purple);box-shadow:0 0 0 4px rgba(97,37,168,.1)}
+    .field input::placeholder{color:#a49ca9}
+    .checkout-consent{grid-column:1/-1;display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;margin-top:2px;color:var(--muted);font-size:13px;cursor:pointer}
+    .checkout-consent input{width:20px;height:20px;margin:0;accent-color:var(--purple)}
+    .checkout-submit{
+      grid-column:1/-1;min-height:54px;border:0;border-radius:999px;background:var(--gradient-cta);color:var(--ink);
+      font-weight:800;cursor:pointer;box-shadow:0 16px 34px rgba(236,23,141,.16);transition:transform .2s var(--ease),opacity .2s ease;
+    }
+    .checkout-submit:hover{transform:translateY(-2px)}
+    .checkout-submit:disabled{cursor:wait;opacity:.6;transform:none}
+    .form-error{grid-column:1/-1;margin:0;padding:10px 12px;border-radius:12px;background:#fff0f2;color:#a12238;font-size:12px}
+    .form-error[hidden]{display:none}
+    .delivery-steps{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .delivery-step{display:flex;align-items:center;gap:11px;padding:13px;border:1px solid var(--line);border-radius:15px;background:#fbfafc}
+    .delivery-step i{display:grid;place-items:center;flex:0 0 31px;width:31px;height:31px;border-radius:50%;background:#f1e9fa;color:var(--purple);font:600 10px var(--mono);font-style:normal}
+    .delivery-step strong{display:block;font-size:14px}
+    .delivery-step span{display:block;color:var(--muted);font-size:12px}
+    .checkout-summary{
+      position:sticky;top:96px;overflow:hidden;border:1px solid var(--line);border-radius:26px;background:#fff;box-shadow:var(--shadow-lg);
+    }
+    .summary-top{position:relative;padding:22px 22px 16px;border-bottom:1px solid var(--line)}
+    .summary-top span{color:var(--purple);font:600 9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .summary-top h3{margin:5px 0 0;font:700 22px var(--display)}
+    .summary-edit{position:absolute;top:21px;right:20px;border:0;background:transparent;color:var(--purple);font-size:12px;font-weight:700;cursor:pointer}
+    .checkout-summary-items{display:grid;gap:11px;padding:18px 22px}
+    .checkout-summary-item{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;font-size:14px}
+    .checkout-summary-item strong{white-space:nowrap}
+    .checkout-summary-empty{margin:0;color:var(--muted);font-size:13px}
+    .checkout-benefit{display:flex;gap:8px;padding:9px 10px;border-radius:12px;background:#f7f1ff;color:var(--purple);font-size:12px;font-weight:600}
+    .checkout-summary-totals{display:grid;gap:10px;padding:18px 22px;border-top:1px solid var(--line);background:#faf8fb}
+    .checkout-total-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+    .checkout-total-row span{color:var(--muted);font-size:13px}
+    .checkout-total-row strong{font:700 24px var(--display)}
+    .checkout-total-row.monthly strong{font-size:29px}
+    .checkout-summary-note{margin:0;color:var(--muted);font-size:11px;line-height:1.45}
+    .confirmation{min-height:calc(100svh - 72px);display:grid;place-items:center;padding:120px 24px 80px;background:#f6f3f7}
+    .confirmation-card{width:min(620px,100%);padding:42px;border:1px solid var(--line);border-radius:32px;background:#fff;text-align:center;box-shadow:var(--shadow-lg)}
+    .confirmation-icon{display:grid;place-items:center;width:68px;height:68px;margin:0 auto 22px;border-radius:50%;background:#e9f8f1;color:var(--success);font-size:30px}
+    .confirmation-card h2{font-size:36px}
+    .confirmation-card p{max-width:470px;margin:14px auto;color:var(--muted)}
+    .confirmation-order{display:inline-flex;margin-top:8px;padding:8px 12px;border-radius:999px;background:#f6f3f7;font:600 11px var(--mono)}
+    .mobile-checkout-bar{display:none}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:1040px){
+      .hero-grid{grid-template-columns:1fr minmax(330px,.8fr);gap:34px}
+      .pricing-layout{grid-template-columns:1fr}
+      .service-grid{grid-template-columns:1fr}
+      .cart{position:static;top:auto;min-height:0}
+    }
+
+    @media(max-width:900px) and (min-width:761px){
+      .service-detail-card{display:block}
+      .service-detail-card>.service-journey{margin:22px 0 16px}
+      .service-detail-card>.business-impact{margin-bottom:16px}
+      .service-detail-card>.inclusion-label{margin-bottom:10px}
+      .service-detail-card>.service-inclusions{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .service-detail-card>.service-more{margin-top:14px}
+      .service-detail-footer{margin-top:18px}
+    }
+
+    @media(min-width:1041px) and (max-height:820px){
+      .pricing{padding:24px 0 18px}
+      .section-head{margin-bottom:12px}
+      .section-kicker{margin-bottom:5px}
+      h2{font-size:40px}
+      .section-head p{margin-top:6px;font-size:14px}
+      .service-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:8px}
+      .service-card{padding:18px 20px}
+      .service-card[data-card="linkedin"]{grid-column:1;grid-row:1;display:flex;flex-direction:column}
+      .service-card[data-card="website"]{grid-column:2;grid-row:1;display:flex;flex-direction:column}
+      .service-card[data-card="seo"]{grid-column:1/-1;grid-row:2;grid-template-columns:170px minmax(0,1fr)}
+      .service-card[data-card="linkedin"] .service-top,.service-card[data-card="website"] .service-top{display:flex;align-items:center;justify-content:space-between}
+      .service-card[data-card="linkedin"] .options{grid-template-columns:1fr 1fr}
+      .service-card[data-card="linkedin"] .option{grid-template-columns:20px minmax(0,1fr)}
+      .service-card[data-card="linkedin"] .option-price{grid-column:2;display:flex;align-items:baseline;gap:4px;text-align:left}
+      .service-card[data-card="linkedin"] .option-price strong,.service-card[data-card="linkedin"] .option-price small{display:inline}
+      .service-card[data-card="website"] .options{grid-template-columns:1fr}
+      .service-card[data-card="linkedin"] .card-foot,.service-card[data-card="website"] .card-foot{grid-column:auto}
+      .service-card[data-card="website"] .bundle-disclaimer{grid-column:auto}
+      .service-top{gap:8px}
+      .option{min-height:72px;padding:11px 13px}
+      .card-foot{padding-top:7px}
+      .bundle-disclaimer{margin-top:8px;padding:9px 11px}
+      .cart{top:82px;gap:6px;padding:12px 14px}
+      .cart-heading{margin-bottom:2px;padding-bottom:6px}
+      .cart-item{padding:1px 2px}
+      .cart-discount{margin-top:1px;font-size:11px}
+      .discount-selector{gap:5px;padding:8px 9px}
+      .discount-options{gap:5px}
+      .discount-option{min-height:40px;padding:5px 7px}
+      .discount-copy strong{font-size:13px}
+      .discount-copy small{font-size:10px}
+      .cart-side{gap:6px}
+      .total{padding:6px 9px}
+      .total strong{font-size:22px}
+      .cart-continue{min-height:42px}
+      .pricing-note{margin-top:8px}
+    }
+
+    @media(max-width:760px){
+      html{scroll-padding-top:68px}
+      .wrap{width:min(100% - 28px,600px)}
+      .masthead{height:64px}
+      .brand{gap:9px}
+      .brand .dm-logo{width:39px;height:30px;object-fit:cover;object-position:left}
+      .brand .client-logo{width:92px;height:32px}
+      .brand-divider{height:24px}
+      .nav-link,.cart-chip>span:not(.cart-count){display:none}
+      .cart-chip{min-width:44px;justify-content:center;padding:8px 10px}
+      .cart-popover{display:none}
+      .hero{min-height:100svh;padding:90px 0 54px;text-align:center}
+      .hero-grid{grid-template-columns:1fr;gap:28px}
+      .hero-copy{display:flex;flex-direction:column;align-items:center}
+      .hero-brands{justify-content:center;margin-bottom:14px}
+      .hero-digitec{width:132px;height:44px}
+      .hero-dm{width:124px;height:31px}
+      .hero-brand-divider{height:29px}
+      .eyebrow{font-size:10px}
+      h1{margin:18px 0 15px;font-size:clamp(40px,11vw,52px);max-width:9ch}
+      .platform-note{justify-items:center;width:min(100%,360px)}
+      .platform-note>span{font-size:10px}
+      .platform-brands{grid-template-columns:repeat(5,minmax(0,1fr));width:100%}
+      .platform-brand{min-width:0;padding:4px}
+      .platform-brand.chatgpt strong,.platform-brand.perplexity strong{font-size:6.5px}
+      .platform-brand.claude img{width:43px}
+      .platform-brand.linkedin img{width:46px}
+      .hero-trust{justify-content:center;text-align:left}
+      .focus-card{display:none}
+      .scroll-cue{bottom:16px}
+      .pricing{overflow:visible;padding:84px 0 124px}
+      .pricing::before{opacity:.25}
+      .section-head{margin-bottom:22px}
+      .section-kicker{margin-bottom:10px}
+      h2{font-size:clamp(36px,9.5vw,44px)}
+      .section-head p{font-size:16px}
+      .mobile-service-nav{
+        position:sticky;z-index:40;top:72px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 0 16px;padding:6px;
+        border:1px solid rgba(231,225,235,.9);border-radius:18px;background:rgba(255,255,255,.88);
+        box-shadow:0 12px 30px rgba(26,14,46,.1);backdrop-filter:blur(18px) saturate(140%);
+        transition:opacity .2s ease,transform .2s var(--ease);
+      }
+      body.reading-overview .mobile-service-nav{opacity:0;transform:translateY(-8px);pointer-events:none}
+      .mobile-service-nav a{
+        display:grid;justify-items:center;gap:2px;padding:8px 4px;border-radius:13px;color:var(--muted);
+        font-size:11px;font-weight:700;text-decoration:none;
+      }
+      .mobile-service-nav a.active{background:#f3ecfa;color:var(--purple)}
+      .mobile-service-nav span{display:grid;place-items:center;width:19px;height:19px;border-radius:50%;background:#fff;font:600 8px var(--mono)}
+      .service-grid{grid-template-columns:1fr;gap:16px}
+      .service-card,.service-card:last-child{display:flex;flex-direction:column;grid-column:auto;padding:20px;border-radius:26px;scroll-margin-top:140px}
+      .service-card:hover{transform:none}
+      .service-index{position:static;width:28px;height:28px;margin:0 auto 8px}
+      .service-top{align-items:center;justify-items:center;margin-bottom:17px;text-align:center}
+      .service-title{font-size:22px}
+      .currency{padding:5px 8px;border-radius:999px;background:#f6f3f7}
+      .service-card[data-card] .options{grid-template-columns:1fr}
+      .service-card[data-card="seo"] .option{grid-template-columns:22px minmax(0,1fr) auto}
+      .service-card[data-card="seo"] .option-price{grid-column:auto;display:block;text-align:right}
+      .service-card[data-card="seo"] .option-price strong,.service-card[data-card="seo"] .option-price small{display:block}
+      .card-foot{grid-column:auto}
+      .bundle-disclaimer{grid-column:auto}
+      .card-foot{text-align:center}
+      .option-copy{text-align:center}
+      .option-price{text-align:center}
+      .option{min-height:78px;padding:13px;gap:10px;border-radius:18px}
+      .option-name{font-size:16px}
+      .option-price strong{font-size:20px}
+      .cart{
+        position:static;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;text-align:left;
+      }
+      .cart>div:first-child{display:block}
+      .cart-heading,.cart-empty,.cart-items,.cart-discount,.cart-side{display:none!important}
+      .discount-selector{padding:18px;border-radius:24px;text-align:left}
+      .discount-intro{text-align:center}
+      .discount-options{grid-template-columns:1fr}
+      .discount-copy{text-align:center}
+      .totals{grid-template-columns:1fr 1fr;width:100%}
+      .total{min-width:0;padding:13px}
+      .total strong{font-size:21px}
+      .cart-continue{width:100%}
+      .checkout{padding:40px 0 132px}
+      .checkout-progress{margin-bottom:24px}
+      .progress-step{font-size:11px}
+      .checkout-layout{grid-template-columns:1fr}
+      .checkout-summary{position:static;top:auto;order:-1;border-radius:22px}
+      .checkout-card{padding:21px;border-radius:22px}
+      .checkout-card-head{margin-bottom:18px}
+      .checkout-card-head h2,.checkout-card-head h3{font-size:23px}
+      .secure-label{display:none}
+      .checkout-form{grid-template-columns:1fr}
+      .field.full,.checkout-consent,.checkout-submit,.form-error{grid-column:auto}
+      .delivery-steps{grid-template-columns:1fr}
+      .confirmation{padding:96px 14px 110px}
+      .confirmation-card{padding:30px 20px;border-radius:26px}
+      .confirmation-card h2{font-size:31px}
+      .mobile-checkout-bar{
+        position:fixed;z-index:120;left:12px;right:12px;bottom:max(10px,env(safe-area-inset-bottom));display:grid;
+        grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px;border:1px solid rgba(255,255,255,.14);
+        border-radius:24px;background:rgba(26,14,46,.96);color:#fff;box-shadow:0 24px 60px rgba(26,14,46,.34);backdrop-filter:blur(20px) saturate(150%);
+      }
+      .mobile-total{
+        min-width:0;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"label label" "monthly once";align-items:baseline;
+        justify-items:start;column-gap:8px;padding:4px 9px;border:0;background:transparent;color:#fff;text-align:left;
+      }
+      .mobile-total>span{grid-area:label;font:500 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.68}
+      .mobile-total strong{grid-area:monthly;font:700 21px var(--display);white-space:nowrap}
+      .mobile-total small{grid-area:once;min-width:0;overflow:hidden;color:rgba(255,255,255,.72);font-size:11px;text-overflow:ellipsis;white-space:nowrap}
+      .mobile-next{min-height:48px;padding:10px 18px;border:0;border-radius:17px;background:var(--gradient-cta);color:var(--ink);font-weight:800;white-space:nowrap}
+      .mobile-next:disabled{filter:grayscale(.8);opacity:.5}
+      .mobile-price-sheet{
+        position:fixed;z-index:119;inset:0;display:grid;align-items:end;background:rgba(26,14,46,.36);backdrop-filter:blur(3px);
+      }
+      .mobile-price-sheet[hidden]{display:none}
+      .mobile-price-sheet-panel{
+        max-height:min(72svh,620px);overflow:auto;padding:12px 18px 104px;border-radius:28px 28px 0 0;background:#fff;
+        box-shadow:0 -24px 70px rgba(26,14,46,.22);
+      }
+      .mobile-sheet-handle{width:38px;height:4px;margin:0 auto 14px;border-radius:999px;background:#d9d1de}
+      .mobile-sheet-head{position:relative;display:flex;align-items:center;justify-content:center;gap:16px;padding:0 42px 14px;border-bottom:1px solid var(--line)}
+      .mobile-sheet-head h3{margin:0;font:700 22px var(--display)}
+      .mobile-sheet-close{position:absolute;top:-1px;right:0;display:grid;place-items:center;width:34px;height:34px;border:0;border-radius:50%;background:#f2eef4;color:var(--ink);font-size:20px}
+      .mobile-sheet-items{display:grid;margin-top:8px}
+      .mobile-sheet-row{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid #f0ebf2;font-size:14px}
+      .mobile-sheet-row strong{font-family:var(--display);white-space:nowrap}
+      .mobile-sheet-benefits{display:grid;gap:7px;margin-top:12px}
+      .mobile-sheet-benefit{padding:9px 11px;border-radius:12px;background:#eaf8f1;color:var(--success-ink);font-size:12px;font-weight:700}
+      .mobile-sheet-totals{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
+      .mobile-sheet-total{padding:13px;border-radius:16px;background:#f5f2f7}
+      .mobile-sheet-total span{display:block;color:var(--muted);font:500 8px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+      .mobile-sheet-total strong{display:block;margin-top:3px;font:700 22px var(--display)}
+      .service-overview{padding:88px 0 136px}
+      .overview-head{margin-bottom:26px}
+      .service-detail-grid{gap:16px}
+      .service-detail-card{display:block;padding:20px;border-radius:26px}
+      .service-detail-card{scroll-margin-top:88px}
+      .service-detail-card.is-selected::before{width:4px;border-radius:26px 0 0 26px}
+      .service-detail-head{grid-template-columns:1fr;justify-items:center;gap:10px;text-align:center}
+      .service-detail-title h3{font-size:24px}
+      .service-detail-title p{font-size:14px}
+      .service-platform-proof{justify-content:center;width:min(100%,440px);margin:11px auto 0}
+      .service-platform-proof.linkedin{flex-direction:column}
+      .service-platform-proof.seo{flex-direction:column;width:min(100%,440px)}
+      .service-platform-proof .proof-brands{justify-content:center;width:100%}
+      .overview-status{margin-top:2px}
+      .service-journey{gap:8px;margin:20px 0 18px;padding:16px}
+      .service-detail-card>.service-journey{margin:20px 0 18px}
+      .service-journey::before{display:none}
+      .journey-step{
+        grid-template-columns:1fr;justify-items:center;gap:5px;padding:12px;
+        border:1px solid rgba(26,14,46,.06);border-radius:16px;background:#fff;text-align:center;
+      }
+      .journey-step i{width:34px;height:34px}
+      .journey-step strong{align-self:auto;font-size:14px}
+      .journey-step span{display:block;grid-column:1;align-self:auto;max-width:28ch;font-size:12px}
+      .business-impact{grid-template-columns:1fr;justify-items:center;gap:10px;padding:17px 14px;text-align:center}
+      .service-detail-card>.business-impact{display:grid;grid-template-columns:1fr;margin:0 0 18px}
+      .service-detail-card>.business-impact .impact-points{grid-column:auto}
+      .impact-copy h4{font-size:18px}
+      .impact-copy p{max-width:32ch}
+      .impact-points{grid-template-columns:1fr;width:100%;gap:6px}
+      .impact-point{min-height:42px;text-align:left}
+      .inclusion-label{text-align:center}
+      .service-detail-card>.inclusion-label{margin:0 0 10px}
+      .service-inclusions{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+      .service-detail-card>.service-inclusions{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .inclusion{min-height:112px;justify-items:center;padding:13px;text-align:center}
+      .inclusion strong{font-size:14px}
+      .service-more{text-align:left}
+      .service-detail-card>.service-more{margin-top:14px}
+      .service-more summary span{flex:1;text-align:center}
+      .service-more-grid{grid-template-columns:1fr}
+      .service-detail-footer{flex-direction:column;margin-top:18px;text-align:center}
+      .service-select-link{width:100%}
+    }
+
+    @media(max-width:390px){
+      .hero-brands{gap:10px}
+      .hero-digitec{width:116px}
+      .hero-dm{width:108px}
+      .platform-note{padding-inline:7px}
+      .service-card{padding:18px}
+      .option{grid-template-columns:22px minmax(0,1fr)}
+      .option-price{grid-column:2;text-align:center}
+      .option-price strong,.option-price small{display:inline}
+      .option-price small{margin-left:4px}
+      .totals{grid-template-columns:1fr}
+    }
+
+    /* Editorial service boards — inspired by the supplied visual reference */
+    .service-overview{
+      padding:120px 0 128px;
+      background:
+        radial-gradient(circle at 92% 5%,rgba(236,23,141,.18),transparent 24%),
+        radial-gradient(circle at 7% 40%,rgba(255,210,74,.1),transparent 22%),
+        #0d1828;
+    }
+    .service-overview::before{
+      left:auto;right:-130px;top:16%;width:360px;height:360px;
+      border-color:rgba(255,255,255,.08);
+    }
+    .service-overview .section-kicker{color:rgba(255,255,255,.62)}
+    .service-overview .section-kicker::before{background:rgba(255,255,255,.1);color:#fff}
+    .service-overview .overview-head h2{color:#fff}
+    .service-overview .overview-head p{color:rgba(255,255,255,.66)}
+    .service-detail-grid{gap:30px}
+    .service-detail-card{
+      --poster-accent:#7327c4;--poster-accent-ink:#fff;
+      position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;
+      padding:2px;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:30px;
+      background:#0b1422;box-shadow:0 32px 80px rgba(0,0,0,.24);
+    }
+    .service-detail-card[data-service="linkedin"]{--poster-accent:#0a66c2;--poster-accent-ink:#fff}
+    .service-detail-card[data-service="seo"]{--poster-accent:#7627c7;--poster-accent-ink:#fff}
+    .service-detail-card[data-service="website"]{--poster-accent:#e6a01b;--poster-accent-ink:#16120b}
+    .service-detail-card:hover{transform:translateY(-5px);box-shadow:0 40px 96px rgba(0,0,0,.3)}
+    .service-detail-card.is-selected{
+      border-color:color-mix(in srgb,var(--poster-accent) 80%,#fff);
+      box-shadow:0 0 0 2px color-mix(in srgb,var(--poster-accent) 58%,transparent),0 40px 96px rgba(0,0,0,.3);
+    }
+    .service-detail-card.is-selected::before{display:none}
+
+    .service-detail-card>.service-detail-head{
+      grid-column:1;grid-row:1;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr;
+      align-items:start;gap:24px;min-height:350px;margin:0;padding:38px;border-radius:26px 0 0 0;
+      background:#f4f2ed;color:#101726;
+    }
+    .service-detail-head .service-detail-icon{
+      grid-column:2;grid-row:1;width:58px;height:58px;border-radius:18px;background:#fff;color:var(--poster-accent);
+      box-shadow:0 12px 30px rgba(11,20,34,.08);
+    }
+    .service-detail-head .overview-status{
+      grid-column:1;grid-row:1;justify-self:start;border-color:rgba(11,20,34,.1);background:rgba(255,255,255,.72);
+    }
+    .service-detail-head .service-detail-title{
+      grid-column:1/-1;grid-row:2;align-self:end;max-width:95%;
+    }
+    .service-detail-head .service-detail-title>span{
+      margin-bottom:14px;color:var(--poster-accent);font-size:10px;letter-spacing:.13em;
+    }
+    .service-detail-head .service-detail-title h3{
+      max-width:10ch;margin:0;font-size:clamp(44px,4.4vw,66px);font-weight:780;line-height:.96;letter-spacing:-.065em;
+    }
+    .service-detail-head .service-detail-title p{
+      max-width:32ch;margin-top:18px;color:#3d4655;font-size:18px;line-height:1.35;
+    }
+    .service-detail-head .service-platform-proof{
+      margin-top:24px;border-color:rgba(11,20,34,.09);background:#fff;
+      box-shadow:0 8px 24px rgba(11,20,34,.06);
+    }
+
+    .service-detail-card>.business-impact{
+      grid-column:2;grid-row:1;display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr auto;
+      align-items:start;align-content:stretch;gap:24px;min-height:350px;margin:0;padding:38px;border:0;border-radius:0 26px 0 0;
+      background:var(--poster-accent);color:var(--poster-accent-ink);box-shadow:none;
+    }
+    .service-detail-card>.business-impact::after{
+      right:-70px;top:-90px;width:250px;height:250px;border:1px solid currentColor;background:transparent;opacity:.12;
+    }
+    .service-detail-card>.business-impact .impact-icon{
+      width:58px;height:58px;border-radius:18px;background:rgba(255,255,255,.95);color:var(--poster-accent);
+      box-shadow:0 12px 32px rgba(0,0,0,.12);
+    }
+    .service-detail-card>.business-impact .impact-copy{align-self:center}
+    .service-detail-card>.business-impact .impact-copy>span{
+      color:currentColor;font-size:10px;letter-spacing:.13em;opacity:.7;
+    }
+    .service-detail-card>.business-impact .impact-copy h4{
+      max-width:12ch;margin:10px 0 14px;color:currentColor;font-size:clamp(36px,3.5vw,52px);line-height:.98;letter-spacing:-.055em;
+    }
+    .service-detail-card>.business-impact .impact-copy p{
+      max-width:35ch;color:currentColor;font-size:16px;line-height:1.4;opacity:.78;
+    }
+    .service-detail-card>.business-impact .impact-points{
+      grid-column:1;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%;
+    }
+    .service-detail-card>.business-impact .impact-point{
+      min-height:52px;border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.13);
+      color:currentColor;font-size:12px;
+    }
+    .service-detail-card[data-service="website"]>.business-impact .impact-point{border-color:rgba(22,18,11,.12);background:rgba(255,255,255,.32)}
+    .service-detail-card>.business-impact .impact-point::before{background:rgba(255,255,255,.94);color:var(--poster-accent)}
+
+    .service-detail-card>.service-journey{
+      grid-column:1;grid-row:2;display:grid;grid-template-columns:1fr;align-content:center;gap:0;
+      min-height:360px;margin:0;padding:34px 38px;border-radius:0;background:#f4f2ed;
+    }
+    .service-detail-card>.service-journey::before{
+      top:64px;bottom:64px;left:59px;width:2px;background:linear-gradient(180deg,var(--poster-accent),rgba(11,20,34,.12));
+    }
+    .service-detail-card>.service-journey .journey-step{
+      grid-template-columns:44px minmax(0,1fr);column-gap:18px;row-gap:4px;min-height:92px;padding:16px 0;
+      border-bottom:1px solid rgba(11,20,34,.1);
+    }
+    .service-detail-card>.service-journey .journey-step:last-child{border-bottom:0}
+    .service-detail-card>.service-journey .journey-step i{
+      width:44px;height:44px;border:6px solid #f4f2ed;background:var(--poster-accent);font-size:10px;
+    }
+    .service-detail-card>.service-journey .journey-step strong{
+      align-self:end;color:#101726;font-size:20px;letter-spacing:-.025em;
+    }
+    .service-detail-card>.service-journey .journey-step span{
+      grid-column:2;align-self:start;max-width:34ch;color:#58606c;font-size:14px;
+    }
+
+    .service-detail-card>.editorial-deliverables-tile{
+      grid-column:2;grid-row:2;display:grid;align-content:start;gap:22px;min-height:360px;padding:34px 34px 28px;background:#fff;
+    }
+    .editorial-deliverables-tile .inclusion-label{
+      margin:0;color:#101726;font:780 28px/1.05 var(--display);letter-spacing:-.04em;text-transform:none;
+    }
+    .editorial-deliverables-tile .service-inclusions{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid rgba(11,20,34,.1);
+    }
+    .editorial-deliverables-tile .inclusion{
+      min-height:126px;align-content:start;gap:8px;padding:18px 16px;border:0;border-bottom:1px solid rgba(11,20,34,.1);
+      border-radius:0;background:transparent;
+    }
+    .editorial-deliverables-tile .inclusion:nth-child(odd){border-right:1px solid rgba(11,20,34,.1)}
+    .editorial-deliverables-tile .inclusion i{
+      width:auto;height:auto;place-items:start;background:transparent;color:var(--poster-accent);
+      font:700 10px var(--mono);letter-spacing:.08em;
+    }
+    .editorial-deliverables-tile .inclusion strong{font-size:16px}
+    .editorial-deliverables-tile .inclusion span{font-size:13px}
+    .editorial-deliverables-tile .service-more{margin:0;border-color:rgba(11,20,34,.12);border-radius:15px;background:#f5f3ef}
+    .editorial-deliverables-tile .service-more summary{min-height:50px;font-size:13px}
+    .editorial-deliverables-tile .service-more summary::after{background:#fff;color:var(--poster-accent)}
+
+    .service-detail-card>.service-detail-footer{
+      grid-column:1/-1;grid-row:3;display:flex;align-items:center;justify-content:space-between;gap:24px;
+      margin:0;padding:20px 26px;border:0;background:#0b1422;color:#fff;
+    }
+    .service-detail-card>.service-detail-footer p{color:rgba(255,255,255,.62);font-size:13px}
+    .service-detail-card>.service-detail-footer .service-select-link{
+      min-height:46px;padding-inline:18px;border-color:rgba(255,255,255,.18);background:#fff;color:#101726;
+    }
+    .service-detail-card>.service-detail-footer .service-select-link::after{color:var(--poster-accent)}
+
+    @media(max-width:980px){
+      .service-detail-card{grid-template-columns:1fr}
+      .service-detail-card>.service-detail-head{grid-column:1;grid-row:1;border-radius:26px 26px 0 0}
+      .service-detail-card>.business-impact{grid-column:1;grid-row:2;border-radius:0}
+      .service-detail-card>.service-journey{grid-column:1;grid-row:3}
+      .service-detail-card>.editorial-deliverables-tile{grid-column:1;grid-row:4}
+      .service-detail-card>.service-detail-footer{grid-column:1;grid-row:5}
+    }
+
+    @media(max-width:760px){
+      .service-overview{padding:88px 0 132px}
+      .service-overview .wrap{width:min(1240px,calc(100% - 28px))}
+      .service-detail-grid{gap:22px}
+      .service-detail-card{display:grid;padding:2px;border-radius:26px}
+      .service-detail-card>.service-detail-head{
+        display:grid;grid-template-columns:1fr;grid-template-rows:auto auto 1fr;justify-items:center;
+        min-height:330px;margin:0;padding:28px 22px;border-radius:22px 22px 0 0;text-align:center;
+      }
+      .service-detail-head .service-detail-icon{grid-column:1;grid-row:1;width:56px;height:56px}
+      .service-detail-head .overview-status{grid-column:1;grid-row:2;justify-self:center;margin:4px 0 18px}
+      .service-detail-head .service-detail-title{grid-column:1;grid-row:3;align-self:end;max-width:100%}
+      .service-detail-head .service-detail-title>span{margin-bottom:10px}
+      .service-detail-head .service-detail-title h3{max-width:10ch;margin-inline:auto;font-size:40px;line-height:.98}
+      .service-detail-head .service-detail-title p{max-width:29ch;margin:14px auto 0;font-size:15px}
+      .service-detail-head .service-platform-proof{margin:18px auto 0}
+      .service-detail-head .service-platform-proof.linkedin{gap:7px}
+
+      .service-detail-card>.business-impact{
+        justify-items:center;min-height:360px;padding:30px 22px;text-align:center;
+      }
+      .service-detail-card>.business-impact .impact-copy h4{max-width:11ch;margin-inline:auto;font-size:38px}
+      .service-detail-card>.business-impact .impact-copy p{max-width:30ch;margin-inline:auto;font-size:15px}
+      .service-detail-card>.business-impact .impact-points{grid-template-columns:1fr}
+      .service-detail-card>.business-impact .impact-point{justify-content:flex-start;text-align:left}
+
+      .service-detail-card>.service-journey{min-height:0;padding:18px 24px}
+      .service-detail-card>.service-journey::before{display:none}
+      .service-detail-card>.service-journey .journey-step{
+        grid-template-columns:1fr;justify-items:center;gap:6px;min-height:0;padding:22px 8px;text-align:center;
+      }
+      .service-detail-card>.service-journey .journey-step i{width:42px;height:42px;border:0}
+      .service-detail-card>.service-journey .journey-step strong{align-self:auto;font-size:19px}
+      .service-detail-card>.service-journey .journey-step span{grid-column:1;align-self:auto;font-size:13px}
+
+      .service-detail-card>.editorial-deliverables-tile{min-height:0;padding:28px 20px 24px;text-align:center}
+      .editorial-deliverables-tile .inclusion-label{font-size:27px}
+      .editorial-deliverables-tile .service-inclusions{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .editorial-deliverables-tile .inclusion{min-height:136px;justify-items:center;padding:17px 10px;text-align:center}
+      .editorial-deliverables-tile .service-more{text-align:left}
+      .service-detail-card>.service-detail-footer{flex-direction:column;padding:22px 20px;text-align:center}
+      .service-detail-card>.service-detail-footer .service-select-link{width:100%}
+    }
+
+    /* Editorial package selector */
+    .pricing{
+      padding:104px 0 72px;color:#fff;background:
+        radial-gradient(circle at 88% 72%,rgba(255,210,74,.11),transparent 26%),
+        radial-gradient(circle at 8% 20%,rgba(157,78,221,.16),transparent 24%),
+        #0d1828;
+    }
+    .pricing::before{
+      opacity:.2;background-image:radial-gradient(rgba(255,255,255,.2) .7px,transparent .7px);
+      mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);
+    }
+    .pricing .section-kicker{color:rgba(255,255,255,.62)}
+    .pricing .section-kicker::before{border-color:rgba(255,255,255,.13);background:rgba(255,255,255,.08);color:#fff}
+    .pricing .section-head h2{color:#fff}
+    .pricing .section-head p{color:rgba(255,255,255,.66)}
+    .pricing .overview-jump{color:#fff;text-decoration-color:rgba(255,255,255,.3)}
+    .pricing-layout{grid-template-columns:minmax(0,1fr) 390px;gap:18px}
+    .service-grid{gap:12px}
+
+    .pricing .service-card{
+      --package-accent:#7627c7;--package-ink:#fff;--package-tint:#f4edff;
+      display:grid;grid-template-columns:210px minmax(0,1fr);grid-auto-rows:auto;column-gap:2px;row-gap:2px;
+      min-width:0;padding:2px;overflow:hidden;border:1px solid rgba(255,255,255,.15);border-radius:26px;
+      background:#0b1422;box-shadow:0 22px 58px rgba(0,0,0,.2);
+    }
+    .pricing .service-card[data-card="linkedin"]{--package-accent:#0a66c2;--package-ink:#fff;--package-tint:#edf6ff}
+    .pricing .service-card[data-card="seo"]{--package-accent:#7627c7;--package-ink:#fff;--package-tint:#f4edff}
+    .pricing .service-card[data-card="website"]{--package-accent:#e6a01b;--package-ink:#16120b;--package-tint:#fff5df}
+    .pricing .service-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.28);box-shadow:0 30px 72px rgba(0,0,0,.27)}
+    .pricing .service-card.has-selection{
+      border-color:color-mix(in srgb,var(--package-accent) 78%,#fff);
+      background:#0b1422;box-shadow:0 0 0 2px color-mix(in srgb,var(--package-accent) 54%,transparent),0 28px 70px rgba(0,0,0,.27);
+    }
+    .pricing .service-card.has-selection::before{display:none}
+    .pricing .service-index{
+      z-index:2;top:16px;left:16px;right:auto;border-color:rgba(255,255,255,.26);
+      background:rgba(255,255,255,.16);color:var(--package-ink);backdrop-filter:blur(8px);
+    }
+    .pricing .service-top{
+      grid-column:1;grid-row:1/5;display:grid;align-content:end;justify-items:start;gap:14px;
+      min-height:164px;margin:0;padding:58px 22px 24px;background:var(--package-accent);color:var(--package-ink);
+    }
+    .pricing .service-title{
+      flex-direction:column;align-items:flex-start;gap:14px;color:currentColor;font-size:32px;line-height:1;letter-spacing:-.055em;
+    }
+    .pricing .service-icon{
+      width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.95);color:var(--package-accent);
+      box-shadow:0 10px 24px rgba(0,0,0,.1);
+    }
+    .pricing .currency{color:currentColor;font-size:9px;opacity:.7}
+    .pricing .options{
+      grid-column:2;grid-row:1;align-content:center;gap:10px;margin:0;padding:18px;background:#fff;
+    }
+    .pricing .service-card[data-card="linkedin"] .options{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .pricing .service-card[data-card="seo"] .options{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .pricing .service-card[data-card="website"] .options{grid-template-columns:1fr}
+    .pricing .option{
+      min-height:96px;padding:15px;border:1px solid rgba(11,20,34,.1);border-radius:16px;
+      background:#f4f2ed;color:#101726;box-shadow:none;
+    }
+    .pricing .option:hover{border-color:color-mix(in srgb,var(--package-accent) 42%,#fff);box-shadow:0 10px 24px rgba(11,20,34,.08)}
+    .pricing .option[aria-pressed="true"]{
+      border-color:var(--package-accent);background:var(--package-tint);
+      box-shadow:inset 0 0 0 1px var(--package-accent),0 10px 24px color-mix(in srgb,var(--package-accent) 10%,transparent);
+    }
+    .pricing .option[aria-pressed="true"] .selector{border-color:var(--package-accent);background:var(--package-accent)}
+    .pricing .option-name{font-size:17px;letter-spacing:-.02em}
+    .pricing .option-detail{color:#66707b;font-size:13px}
+    .pricing .option-price strong{font-size:22px}
+    .pricing .option-price small{color:#66707b}
+    .pricing .bundle-disclaimer{
+      grid-column:2;grid-row:auto;margin:0;padding:13px 18px;border:0;border-radius:0;background:#f4edff;color:#342647;
+    }
+    .pricing .card-foot{
+      grid-column:2;grid-row:auto;margin:0;padding:11px 18px 14px;background:#fff;color:#69717b;
+    }
+    .pricing .card-foot strong{color:#101726}
+
+    .pricing .cart{
+      top:92px;gap:16px;padding:24px;border:2px solid #0b1422;border-radius:28px;
+      background:#e6a01b;color:#101726;box-shadow:0 34px 78px rgba(0,0,0,.28);
+    }
+    .pricing .cart-heading{border-color:rgba(11,20,34,.18)}
+    .pricing .cart-heading-icon{background:#fff;color:#b26f00;box-shadow:0 9px 22px rgba(11,20,34,.1)}
+    .pricing .cart-kicker{color:#101726;opacity:.62}
+    .pricing .cart-heading h3{font-size:24px;letter-spacing:-.035em}
+    .pricing .cart-empty{border-color:rgba(11,20,34,.25);background:rgba(255,255,255,.34);color:#453a28}
+    .pricing .cart-item{border-color:rgba(11,20,34,.14)}
+    .pricing .cart-item-price{color:#101726}
+    .pricing .cart-item button{background:rgba(255,255,255,.52);color:#101726}
+    .pricing .cart-discount{color:#144c37}
+    .pricing .discount-selector{border-color:#7fc8a5;background:linear-gradient(145deg,#f0fbf5,#dff4e9)}
+    .pricing .total{border-color:rgba(11,20,34,.14);background:rgba(255,255,255,.58)}
+    .pricing .total:first-child{border-color:#0b1422;background:#0b1422;color:#fff}
+    .pricing .total span{color:#51452f}
+    .pricing .total:first-child span{color:rgba(255,255,255,.62)}
+    .pricing .cart-continue{background:#0b1422;color:#fff;box-shadow:0 14px 30px rgba(11,20,34,.2)}
+    .pricing .cart-continue:disabled{background:#554a37;color:rgba(255,255,255,.72)}
+    .pricing .pricing-note{color:rgba(255,255,255,.52)}
+
+    @media(min-width:1041px) and (max-height:820px){
+      .pricing{padding:24px 0 18px}
+      .pricing .service-grid{grid-template-columns:1fr;grid-template-rows:none;gap:8px}
+      .pricing .service-card[data-card="linkedin"],
+      .pricing .service-card[data-card="seo"],
+      .pricing .service-card[data-card="website"]{
+        display:grid;grid-column:auto;grid-row:auto;grid-template-columns:160px minmax(0,1fr);padding:2px;
+      }
+      .pricing .service-card .service-top{
+        grid-column:1;grid-row:1/5;display:grid;align-content:end;justify-items:start;padding:48px 16px 18px;
+      }
+      .pricing .service-card .service-title{display:flex;align-items:flex-start;justify-content:flex-start;font-size:25px}
+      .pricing .service-card .options{grid-column:2;grid-row:1;padding:10px}
+      .pricing .service-card[data-card="linkedin"] .options{grid-template-columns:1fr 1fr}
+      .pricing .service-card[data-card="seo"] .options{grid-template-columns:repeat(3,1fr)}
+      .pricing .service-card[data-card="website"] .options{grid-template-columns:1fr}
+      .pricing .service-card .option{min-height:70px;padding:10px}
+      .pricing .service-card .bundle-disclaimer{grid-column:2;margin:0;padding:8px 12px}
+      .pricing .service-card .card-foot{grid-column:2;padding:7px 12px 9px}
+      .pricing .cart{top:80px;gap:7px;padding:12px 14px}
+      .pricing .cart-heading h3{font-size:19px}
+    }
+
+    @media(max-width:760px){
+      .pricing{padding:88px 0 132px}
+      .pricing .wrap{width:min(1240px,calc(100% - 28px))}
+      .pricing .mobile-service-nav{
+        top:72px;border-color:rgba(255,255,255,.14);background:rgba(11,20,34,.88);
+        box-shadow:0 14px 34px rgba(0,0,0,.24);
+      }
+      .pricing .mobile-service-nav a{color:rgba(255,255,255,.62)}
+      .pricing .mobile-service-nav a.active{background:rgba(255,255,255,.13);color:#fff}
+      .pricing .mobile-service-nav span{background:rgba(255,255,255,.1);color:#fff}
+      .pricing .service-grid{gap:16px}
+      .pricing .service-card,
+      .pricing .service-card[data-card="linkedin"],
+      .pricing .service-card[data-card="seo"],
+      .pricing .service-card[data-card="website"]{
+        display:grid;grid-template-columns:1fr;grid-auto-rows:auto;padding:2px;border-radius:24px;
+      }
+      .pricing .service-index{position:absolute;top:15px;left:15px;margin:0}
+      .pricing .service-card .service-top{
+        grid-column:1;grid-row:1;display:grid;justify-items:center;align-content:center;gap:12px;
+        min-height:180px;margin:0;padding:48px 20px 24px;text-align:center;
+      }
+      .pricing .service-card .service-title{align-items:center;font-size:36px}
+      .pricing .service-card .currency{padding:0;background:transparent}
+      .pricing .service-card[data-card] .options{
+        grid-column:1;grid-row:auto;grid-template-columns:1fr;padding:14px;background:#fff;
+      }
+      .pricing .service-card[data-card="seo"] .option{grid-template-columns:22px minmax(0,1fr) auto}
+      .pricing .service-card .option{min-height:86px}
+      .pricing .service-card .bundle-disclaimer{grid-column:1;grid-row:auto}
+      .pricing .service-card .card-foot{grid-column:1;grid-row:auto;text-align:center}
+      .pricing .cart{
+        position:static;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;
+      }
+      .pricing .discount-selector{border:1px solid #7fc8a5;border-radius:22px}
+      .pricing .pricing-note{margin-top:14px}
+    }
+
+    /* Square editorial geometry */
+    .service-overview .section-kicker::before,
+    .service-overview .service-detail-card,
+    .service-overview .service-detail-head,
+    .service-overview .service-detail-icon,
+    .service-overview .overview-status,
+    .service-overview .service-platform-proof,
+    .service-overview .proof-brand,
+    .service-overview .business-impact,
+    .service-overview .impact-icon,
+    .service-overview .impact-point,
+    .service-overview .service-journey,
+    .service-overview .journey-step,
+    .service-overview .journey-step i,
+    .service-overview .inclusion,
+    .service-overview .service-more,
+    .service-overview .service-more summary::after,
+    .service-overview .service-select-link,
+    .pricing .section-kicker::before,
+    .pricing .mobile-service-nav,
+    .pricing .mobile-service-nav a,
+    .pricing .mobile-service-nav span,
+    .pricing .service-card,
+    .pricing .service-index,
+    .pricing .service-icon,
+    .pricing .currency,
+    .pricing .option,
+    .pricing .selector,
+    .pricing .option.radio .selector,
+    .pricing .bundle-disclaimer,
+    .pricing .cart,
+    .pricing .cart-heading-icon,
+    .pricing .cart-empty,
+    .pricing .cart-item button,
+    .pricing .discount-selector,
+    .pricing .discount-option,
+    .pricing .discount-badge,
+    .pricing .total,
+    .pricing .cart-continue{
+      border-radius:0!important;
+    }
+
+    /* Borderless block hierarchy */
+    .service-overview .section-kicker::before,
+    .service-overview .overview-status,
+    .service-overview .service-platform-proof,
+    .service-overview .proof-brand,
+    .service-overview .impact-point,
+    .service-overview .service-more,
+    .service-overview .service-select-link,
+    .pricing .section-kicker::before,
+    .pricing .mobile-service-nav,
+    .pricing .service-card,
+    .pricing .option,
+    .pricing .selector,
+    .pricing .bundle-disclaimer,
+    .pricing .cart,
+    .pricing .cart-empty,
+    .pricing .discount-selector,
+    .pricing .discount-option,
+    .pricing .total{
+      border:0!important;
+    }
+    .service-overview .service-detail-card{gap:8px;padding:0;border:0;background:transparent}
+    .service-overview .service-detail-card.is-selected{border:0;box-shadow:0 34px 88px rgba(0,0,0,.3)}
+    .service-overview .service-journey::before{display:none}
+    .service-overview .journey-step{border:0!important}
+    .service-overview .editorial-deliverables-tile .service-inclusions{gap:8px;border:0}
+    .service-overview .editorial-deliverables-tile .inclusion{
+      border:0!important;background:#f4f2ed;
+    }
+    .service-overview .service-detail-footer{border:0}
+
+    .pricing .service-card{gap:6px;padding:0;border:0}
+    .pricing .service-card.has-selection{border:0;box-shadow:0 30px 72px rgba(0,0,0,.27)}
+    .pricing .option{border:0;background:#f4f2ed}
+    .pricing .option:hover{border:0;box-shadow:0 10px 24px rgba(11,20,34,.08)}
+    .pricing .option[aria-pressed="true"]{
+      border:0;background:var(--package-tint);box-shadow:none;
+    }
+    .pricing .selector{border:0;background:#d8d1db}
+    .pricing .cart-heading,.pricing .cart-item{border:0}
+    .pricing .discount-option[aria-pressed="true"]{border:0;box-shadow:none;background:#fff}
+    .mobile-checkout-bar,
+    .mobile-next,
+    .mobile-price-sheet-panel,
+    .mobile-sheet-total,
+    .mobile-sheet-benefit,
+    .mobile-sheet-close{border-radius:0!important}
+
+    @media(max-width:760px){
+      .pricing .pricing-layout{grid-template-columns:minmax(0,1fr);gap:16px}
+      .pricing .service-grid{width:100%;min-width:0}
+      .pricing .service-card,
+      .pricing .service-card[data-card="linkedin"],
+      .pricing .service-card[data-card="seo"],
+      .pricing .service-card[data-card="website"]{
+        width:100%;min-width:0;gap:6px;padding:0;
+      }
+    }
+
+    /* Editorial hero */
+    .masthead{border-bottom:0}
+    .masthead .cart-chip,
+    .masthead .cart-count,
+    .masthead .cart-popover,
+    .masthead .popover-total,
+    .masthead .popover-button{border-radius:0;border:0}
+    .masthead .popover-head{border-bottom:0}
+    .hero{
+      min-height:100svh;padding:88px 0 40px;background:#0d1828;
+    }
+    .hero .hero-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px;
+    }
+    .hero .hero-copy{
+      min-height:calc(100svh - 128px);display:flex;flex-direction:column;justify-content:center;
+      padding:clamp(38px,4.3vw,64px);background:#f4f2ed;color:#101726;
+    }
+    .hero .hero-brand-divider{display:none}
+    .hero .hero-brands{gap:24px;margin-bottom:26px}
+    .hero .eyebrow-dot{border-radius:0;box-shadow:none}
+    .hero h1{max-width:10ch;margin:26px 0 22px;font-size:clamp(58px,5.6vw,82px);line-height:.93;letter-spacing:-.07em}
+    .hero .platform-note{
+      width:max-content;max-width:100%;padding:12px;border:0;border-radius:0;background:#fff;box-shadow:none;backdrop-filter:none;
+    }
+    .hero .platform-brand{border:0;border-radius:0;background:#f4f2ed}
+    .hero .button{min-height:54px;padding-inline:22px;border-radius:0;background:#0b1422;box-shadow:none}
+    .hero .hero-people img{border:0;border-radius:0;box-shadow:none}
+    .hero .hero-people img+img{margin-left:6px}
+    .hero .focus-card{
+      min-height:calc(100svh - 128px);padding:38px;border:0;border-radius:0;
+      background:#e6a01b;box-shadow:none;
+    }
+    .hero .focus-card::before,.hero .focus-card::after{display:none}
+    .hero .orbit-item{
+      width:70px;height:70px;border:0;border-radius:0;background:#0b1422;color:#fff;backdrop-filter:none;
+      box-shadow:0 14px 30px rgba(11,20,34,.18);
+    }
+    .hero .focus-core{width:200px;height:200px;border-radius:0;box-shadow:0 24px 54px rgba(11,20,34,.2)}
+    .hero .scroll-cue{bottom:15px;color:rgba(255,255,255,.62)}
+    .hero .scroll-cue i{border-radius:0;box-shadow:none}
+
+    @media(max-width:760px){
+      .hero{min-height:100svh;padding:74px 0 28px}
+      .hero .hero-grid{grid-template-columns:1fr;gap:6px;width:min(1240px,calc(100% - 28px))}
+      .hero .hero-copy{min-height:0;padding:28px 18px}
+      .hero .hero-brands{gap:15px;margin-bottom:16px}
+      .hero h1{margin:20px auto 16px;font-size:clamp(40px,11vw,50px);line-height:.94}
+      .hero .platform-note{padding:9px}
+      .hero .hero-actions{margin-top:20px}
+      .hero .hero-trust{margin-top:16px}
+      .hero .focus-card{display:grid;min-height:240px;padding:18px}
+      .hero .orbit{width:220px;height:220px}
+      .hero .orbit-item{width:48px;height:48px;font-size:8px}
+      .hero .focus-core{width:118px;height:118px;padding:14px}
+      .hero .focus-core img{width:84px}
+      .hero .focus-core span{font-size:7px}
+      .hero .scroll-cue{display:none}
+    }
+
+    /* One unified hero canvas */
+    .hero{
+      padding:104px 0 64px;color:#fff;background:
+        radial-gradient(circle at 78% 48%,rgba(230,160,27,.22),transparent 28%),
+        radial-gradient(circle at 12% 12%,rgba(236,23,141,.16),transparent 25%),
+        #0d1828;
+    }
+    .hero .hero-grid{
+      grid-template-columns:minmax(0,1.02fr) minmax(390px,.98fr);align-items:center;gap:clamp(44px,6vw,86px);
+    }
+    .hero .hero-copy{min-height:0;padding:0;background:transparent;color:#fff}
+    .hero .hero-brands{
+      width:max-content;max-width:100%;padding:12px 14px;margin-bottom:24px;background:#f4f2ed;
+    }
+    .hero .eyebrow{color:rgba(255,255,255,.68)}
+    .hero h1{max-width:10ch}
+    .hero .platform-note{background:transparent}
+    .hero .platform-note>span{color:rgba(255,255,255,.7)}
+    .hero .platform-brand{background:#f4f2ed}
+    .hero .button{background:#e6a01b;color:#101726}
+    .hero .hero-trust-copy strong{color:#fff}
+    .hero .hero-trust-copy a{color:rgba(255,255,255,.62)}
+    .hero .focus-card{
+      min-height:560px;padding:0;background:radial-gradient(circle,rgba(230,160,27,.22),transparent 61%);
+    }
+    .hero .orbit{width:390px;height:390px}
+    .hero .orbit-item:nth-child(1){background:#0a66c2}
+    .hero .orbit-item:nth-child(2){background:#7627c7}
+    .hero .orbit-item:nth-child(3){background:#e6a01b;color:#101726}
+    .hero .orbit-item:nth-child(4){background:#d82582}
+    .hero .focus-core{width:210px;height:210px}
+
+    @media(min-width:761px) and (max-height:820px){
+      .hero{min-height:100svh;padding:84px 0 24px}
+      .hero .hero-grid{gap:42px}
+      .hero .hero-brands{padding:9px 11px;margin-bottom:14px}
+      .hero .hero-digitec{width:150px;height:48px}
+      .hero .hero-dm{width:142px;height:34px}
+      .hero h1{margin:16px 0 14px;font-size:58px}
+      .hero .platform-note{padding:0}
+      .hero .hero-actions{margin-top:18px}
+      .hero .hero-trust{margin-top:14px}
+      .hero .focus-card{min-height:600px}
+      .hero .orbit{width:330px;height:330px}
+      .hero .focus-core{width:176px;height:176px}
+    }
+
+    @media(max-width:760px){
+      .hero{min-height:100svh;padding:76px 0 28px}
+      .hero .hero-grid{grid-template-columns:1fr;gap:10px}
+      .hero .hero-copy{padding:0;text-align:center}
+      .hero .hero-brands{justify-content:center;margin:0 auto 16px}
+      .hero .eyebrow{justify-content:center}
+      .hero .platform-note{margin-inline:auto}
+      .hero .hero-trust-copy strong{color:#fff}
+      .hero .focus-card{min-height:230px;background:radial-gradient(circle,rgba(230,160,27,.2),transparent 66%)}
+      .hero .orbit{width:210px;height:210px}
+      .hero .orbit-item{width:46px;height:46px}
+      .hero .focus-core{width:112px;height:112px}
+    }
+
+    @media(max-width:760px) and (max-height:780px){
+      .hero{padding:70px 0 18px}
+      .hero .hero-brands{padding:7px 9px;margin-bottom:10px}
+      .hero .hero-digitec{width:108px;height:36px}
+      .hero .hero-dm{width:102px;height:27px}
+      .hero .eyebrow{font-size:8px}
+      .hero h1{margin:13px auto 10px;font-size:38px}
+      .hero .platform-note{gap:5px;padding:0}
+      .hero .platform-note>span{font-size:9px}
+      .hero .platform-brand{height:25px}
+      .hero .hero-actions{margin-top:13px}
+      .hero .button{min-height:44px;padding:10px 15px}
+      .hero .hero-trust{margin-top:10px}
+      .hero .hero-people img{width:38px;height:38px}
+      .hero .focus-card{min-height:170px}
+      .hero .orbit{width:158px;height:158px}
+      .hero .orbit-item{width:36px;height:36px;font-size:7px}
+      .hero .focus-core{width:82px;height:82px;padding:9px}
+      .hero .focus-core img{width:58px}
+      .hero .focus-core span{display:none}
+    }
+
+    /* Typographic growth composition */
+    .hero-growth{
+      position:relative;min-height:560px;display:grid;grid-template-rows:auto 1fr auto;align-content:center;
+      gap:32px;padding:34px 0;color:#fff;isolation:isolate;
+    }
+    .hero-growth::before{
+      content:"";position:absolute;z-index:-1;inset:7% -8% 3% -12%;
+      background:linear-gradient(120deg,rgba(10,102,194,.42),rgba(118,39,199,.34) 48%,rgba(230,160,27,.4));
+      clip-path:polygon(0 0,62% 0,100% 50%,62% 100%,0 100%,36% 50%);opacity:.3;
+    }
+    .growth-intro{display:grid;gap:5px}
+    .growth-intro span,.growth-result span{
+      color:rgba(255,255,255,.56);font:600 10px var(--mono);letter-spacing:.13em;text-transform:uppercase;
+    }
+    .growth-intro strong{font:700 22px var(--display);letter-spacing:-.025em}
+    .growth-stack{display:grid;align-content:center;gap:3px}
+    .growth-channel{
+      --shift:0px;display:flex;align-items:baseline;gap:15px;transform:translateX(var(--shift));
+      font:800 clamp(46px,4.8vw,70px)/.94 var(--display);letter-spacing:-.065em;text-transform:uppercase;
+      transition:transform .45s var(--ease),letter-spacing .45s var(--ease);
+    }
+    .growth-channel i{
+      width:28px;color:rgba(255,255,255,.5);font:600 9px var(--mono);font-style:normal;letter-spacing:.08em;
+    }
+    .growth-channel.linkedin{color:#2d8cff}
+    .growth-channel.search{--shift:7%;color:#bd5cff}
+    .growth-channel.website{--shift:14%;color:#f2aa1d}
+    .hero-growth:hover .growth-channel{transform:translateX(calc(var(--shift) + 8px));letter-spacing:-.045em}
+    .growth-result{
+      display:flex;align-items:end;justify-content:flex-end;gap:18px;text-align:right;
+    }
+    .growth-result span{padding-bottom:7px}
+    .growth-result strong{
+      color:#fff;font:800 clamp(72px,7vw,104px)/.78 var(--display);letter-spacing:-.075em;
+    }
+
+    @media(min-width:761px) and (max-height:820px){
+      .hero-growth{min-height:600px;gap:20px;padding:24px 0}
+      .growth-channel{font-size:48px}
+      .growth-result strong{font-size:72px}
+    }
+
+    @media(max-width:760px){
+      .hero-growth{min-height:220px;gap:14px;padding:16px 0;text-align:center}
+      .hero-growth::before{inset:0 -8%;opacity:.26}
+      .growth-intro{justify-items:center}
+      .growth-intro strong{font-size:15px}
+      .growth-stack{justify-items:center;gap:2px}
+      .growth-channel{
+        --shift:0px!important;justify-content:center;gap:9px;transform:none!important;font-size:29px;letter-spacing:-.045em;
+      }
+      .growth-channel i{width:20px;font-size:7px}
+      .growth-result{justify-content:center;gap:10px;text-align:left}
+      .growth-result span{font-size:8px}
+      .growth-result strong{font-size:44px;line-height:.82}
+    }
+
+    @media(max-width:760px) and (max-height:780px){
+      .hero-growth{min-height:150px;gap:7px;padding:8px 0}
+      .growth-intro{display:none}
+      .growth-channel{font-size:23px}
+      .growth-result strong{font-size:34px}
+      .growth-result span{font-size:7px}
+    }
+
+    /* Global bold editorial direction */
+    .service-overview,.pricing{padding-top:144px;padding-bottom:144px}
+    .service-overview .overview-head,
+    .pricing .section-head{
+      max-width:1240px;margin:0 auto 64px;text-align:left;
+    }
+    .service-overview .overview-head h2,
+    .pricing .section-head h2{
+      max-width:11ch;color:#fff;font-size:clamp(72px,7.4vw,108px);font-weight:800;line-height:.88;letter-spacing:-.075em;
+    }
+    .service-overview .overview-head p,
+    .pricing .section-head p{
+      max-width:620px;margin:26px 0 0;color:rgba(255,255,255,.64);font-size:20px;line-height:1.4;
+    }
+    .service-overview .section-kicker,
+    .pricing .section-kicker{margin-bottom:22px;font-size:11px}
+    .service-overview .section-kicker::before,
+    .pricing .section-kicker::before{width:38px;height:38px;font-size:10px}
+    .service-detail-grid{gap:44px}
+    .service-detail-card{box-shadow:0 40px 100px rgba(0,0,0,.3)}
+    .service-detail-head .service-detail-title h3{font-size:clamp(54px,5vw,76px)}
+    .service-detail-card>.business-impact .impact-copy h4{font-size:clamp(44px,4.2vw,62px)}
+    .editorial-deliverables-tile .inclusion-label{font-size:34px}
+    .pricing .service-title{font-size:36px}
+    .pricing .cart-heading h3{font-size:28px}
+
+    .checkout{
+      min-height:100svh;padding:128px 0 104px;color:#fff;background:
+        radial-gradient(circle at 8% 18%,rgba(118,39,199,.2),transparent 25%),
+        radial-gradient(circle at 92% 74%,rgba(230,160,27,.14),transparent 24%),
+        #0d1828;
+    }
+    .checkout-progress{max-width:1240px;margin:0 0 52px;grid-template-columns:repeat(3,max-content);justify-content:start;gap:10px}
+    .checkout-progress::before{display:none}
+    .progress-step{
+      grid-template-columns:38px auto;align-items:center;justify-items:start;gap:10px;padding:10px 14px;
+      background:rgba(255,255,255,.07);color:rgba(255,255,255,.56);font-size:12px;text-transform:uppercase;letter-spacing:.05em;
+    }
+    .progress-step i{
+      width:38px;height:38px;border:0;border-radius:0;background:rgba(255,255,255,.12);color:#fff;
+    }
+    .progress-step.done i{background:#11845b}
+    .progress-step.active{background:#e6a01b;color:#101726}
+    .progress-step.active i{border:0;background:#101726;color:#fff;box-shadow:none}
+    .checkout-layout{grid-template-columns:minmax(0,1fr) 390px;gap:8px}
+    .checkout-stack{gap:8px}
+    .checkout-card{
+      padding:42px;border:0;border-radius:0;background:#f4f2ed;color:#101726;box-shadow:none;
+    }
+    .checkout-card-head{margin-bottom:30px}
+    .checkout-card-head h2{max-width:8ch;font-size:clamp(56px,5.6vw,78px);line-height:.9;letter-spacing:-.07em}
+    .checkout-card-head h3{font-size:38px;line-height:1;letter-spacing:-.05em}
+    .checkout-card-head p{max-width:46ch;margin-top:12px;font-size:16px}
+    .secure-label{padding:9px 10px;background:#e2f5eb;color:#0d7350}
+    .checkout-form{gap:18px 12px}
+    .field{gap:8px}
+    .field label{font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .field input{
+      height:54px;padding:0 16px;border:0;border-radius:0;background:#fff;box-shadow:none;
+    }
+    .field input:focus{border:0;box-shadow:inset 0 0 0 3px #7627c7}
+    .checkout-consent{font-size:14px}
+    .checkout-submit{
+      min-height:60px;border-radius:0;background:#101726;color:#fff;box-shadow:none;font-size:16px;
+    }
+    .form-error{border-radius:0}
+    .checkout-card:last-child{background:#7627c7;color:#fff}
+    .checkout-card:last-child .checkout-card-head p{color:rgba(255,255,255,.68)}
+    .delivery-steps{gap:8px}
+    .delivery-step{min-height:94px;padding:18px;border:0;border-radius:0;background:rgba(255,255,255,.12);color:#fff}
+    .delivery-step i{border-radius:0;background:#fff;color:#7627c7}
+    .delivery-step span{color:rgba(255,255,255,.66)}
+    .checkout-summary{
+      top:88px;border:0;border-radius:0;background:#e6a01b;color:#101726;box-shadow:none;
+    }
+    .summary-top{padding:28px 26px 20px;border:0}
+    .summary-top span,.summary-edit{color:#604000}
+    .summary-top h3{font-size:30px;letter-spacing:-.045em}
+    .checkout-summary-items{padding:22px 26px}
+    .checkout-benefit{border-radius:0;background:rgba(255,255,255,.46);color:#543900}
+    .checkout-summary-totals{padding:22px 26px;border:0;background:rgba(255,255,255,.28)}
+    .checkout-total-row strong{font-size:30px}
+    .checkout-total-row.monthly strong{font-size:42px}
+    .checkout-summary-note{color:#594a30}
+
+    .confirmation{
+      min-height:100svh;padding:120px 24px;color:#fff;background:
+        radial-gradient(circle at 50% 38%,rgba(118,39,199,.28),transparent 32%),
+        #0d1828;
+    }
+    .confirmation-card{
+      width:min(1040px,100%);padding:0;border:0;border-radius:0;background:transparent;color:#fff;box-shadow:none;
+    }
+    .confirmation-icon{width:78px;height:78px;border-radius:0;background:#e6a01b;color:#101726}
+    .confirmation-card .section-kicker{color:rgba(255,255,255,.64)}
+    .confirmation-card h2{
+      max-width:11ch;margin:24px auto 0;color:#fff;font-size:clamp(64px,8vw,112px);line-height:.87;letter-spacing:-.075em;
+    }
+    .confirmation-card p{max-width:620px;margin:30px auto 0;color:rgba(255,255,255,.66);font-size:19px}
+    .confirmation-order{margin-top:24px;border-radius:0;background:rgba(255,255,255,.1);color:#fff}
+
+    @media(min-width:1041px) and (max-height:820px){
+      .service-overview,.pricing{padding-top:24px;padding-bottom:18px}
+      .service-overview .overview-head,.pricing .section-head{margin-bottom:16px}
+      .service-overview .overview-head h2,.pricing .section-head h2{font-size:52px}
+      .service-overview .overview-head p,.pricing .section-head p{margin-top:8px;font-size:14px}
+      .service-overview .section-kicker,.pricing .section-kicker{margin-bottom:6px}
+    }
+
+    @media(max-width:760px){
+      .service-overview,.pricing{padding-top:96px;padding-bottom:132px}
+      .service-overview .overview-head,.pricing .section-head{margin-bottom:34px;text-align:center}
+      .service-overview .overview-head h2,.pricing .section-head h2{
+        max-width:9ch;margin-inline:auto;font-size:clamp(48px,14vw,62px);line-height:.9;
+      }
+      .service-overview .overview-head p,.pricing .section-head p{
+        max-width:31ch;margin:18px auto 0;font-size:16px;
+      }
+      .service-detail-grid{gap:26px}
+      .service-detail-head .service-detail-title h3{font-size:42px}
+      .service-detail-card>.business-impact .impact-copy h4{font-size:40px}
+      .editorial-deliverables-tile .inclusion-label{font-size:30px}
+      .pricing .service-title{font-size:38px}
+
+      .checkout{padding:90px 0 132px}
+      .checkout .wrap{width:min(1240px,calc(100% - 28px))}
+      .checkout-progress{grid-template-columns:1fr;gap:6px;margin-bottom:20px}
+      .progress-step{grid-template-columns:34px 1fr;justify-items:start;text-align:left}
+      .progress-step i{width:34px;height:34px}
+      .checkout-layout{grid-template-columns:1fr;gap:8px}
+      .checkout-card{padding:28px 20px}
+      .checkout-card-head{display:grid;justify-items:center;text-align:center}
+      .checkout-card-head h2{max-width:8ch;font-size:48px}
+      .checkout-card-head h3{font-size:34px}
+      .checkout-card-head p{font-size:15px}
+      .secure-label{margin-top:4px}
+      .checkout-form{grid-template-columns:1fr;gap:14px}
+      .field.full,.checkout-consent,.checkout-submit,.form-error{grid-column:1}
+      .delivery-steps{grid-template-columns:1fr}
+      .checkout-summary{position:static;order:-1}
+      .summary-top{text-align:left}
+      .confirmation{padding:96px 18px}
+      .confirmation-card h2{font-size:52px}
+      .confirmation-card p{font-size:16px}
+    }
+
+    /* NYC agency layer */
+    .service-overview::after,
+    .pricing::after,
+    .checkout::after,
+    .confirmation::after{
+      position:absolute;z-index:0;pointer-events:none;color:#fff;font:800 clamp(150px,18vw,290px)/.78 var(--display);
+      letter-spacing:-.09em;opacity:.035;white-space:nowrap;
+    }
+    .service-overview::after{content:"SERVICES";top:130px;right:-34px}
+    .pricing::after{content:"SELECT";top:130px;right:-24px}
+    .checkout{position:relative;overflow:hidden}
+    .checkout::after{content:"CHECKOUT";bottom:70px;left:-30px}
+    .checkout>.wrap,.confirmation-card{position:relative;z-index:1}
+    .confirmation{position:relative;overflow:hidden}
+    .confirmation::after{content:"WELCOME";bottom:40px;left:50%;transform:translateX(-50%)}
+    .service-overview .overview-head h2,
+    .pricing .section-head h2{text-transform:uppercase}
+    .service-overview .section-kicker::after,
+    .pricing .section-kicker::after{content:"→";margin-left:4px;color:#e6a01b;font:700 18px var(--display)}
+    .service-detail-card{box-shadow:none}
+    .service-detail-card:hover{box-shadow:none}
+    .service-detail-card>.service-detail-head{position:relative;overflow:hidden}
+    .service-detail-card>.service-detail-head::after{
+      position:absolute;right:18px;bottom:-25px;color:var(--poster-accent);
+      font:800 150px/.8 var(--display);letter-spacing:-.1em;opacity:.06;
+    }
+    .service-detail-card[data-service="linkedin"]>.service-detail-head::after{content:"01"}
+    .service-detail-card[data-service="seo"]>.service-detail-head::after{content:"02"}
+    .service-detail-card[data-service="website"]>.service-detail-head::after{content:"03"}
+    .service-detail-card>.service-detail-head>*{position:relative;z-index:1}
+    .service-detail-head .service-detail-title h3{text-transform:uppercase}
+    .service-detail-card>.business-impact .impact-copy h4{text-transform:uppercase}
+    .service-detail-card>.service-detail-footer .service-select-link,
+    .pricing .cart-continue,
+    .hero .button,
+    .checkout-submit{
+      text-transform:uppercase;letter-spacing:.035em;
+    }
+    .pricing .service-card,.pricing .cart{box-shadow:none}
+    .pricing .service-title{text-transform:uppercase}
+    .pricing .option-price strong{font-size:24px}
+    .checkout-card-head h2,.checkout-card-head h3{text-transform:uppercase}
+
+    @media(min-width:981px){
+      .service-detail-card[data-service="seo"]>.service-detail-head{grid-column:2;grid-row:1}
+      .service-detail-card[data-service="seo"]>.business-impact{grid-column:1;grid-row:1}
+      .service-detail-card[data-service="seo"]>.service-journey{grid-column:2;grid-row:2}
+      .service-detail-card[data-service="seo"]>.editorial-deliverables-tile{grid-column:1;grid-row:2}
+    }
+
+    @media(min-width:1041px) and (min-height:821px){
+      .pricing .service-card[data-card="seo"]{grid-template-columns:minmax(0,1fr) 210px}
+      .pricing .service-card[data-card="seo"] .service-top{grid-column:2;grid-row:1/5}
+      .pricing .service-card[data-card="seo"] .service-index{left:auto;right:16px}
+      .pricing .service-card[data-card="seo"] .options,
+      .pricing .service-card[data-card="seo"] .card-foot{grid-column:1}
+    }
+
+    @media(max-width:760px){
+      .service-overview::after,.pricing::after,.checkout::after,.confirmation::after{font-size:110px;opacity:.028}
+      .service-overview::after,.pricing::after{top:100px;right:-10px}
+      .service-overview .section-kicker::after,.pricing .section-kicker::after{display:none}
+      .service-detail-card>.service-detail-head::after{right:50%;bottom:-10px;transform:translateX(50%);font-size:118px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt</a>
+
+  <header class="masthead" id="masthead">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Digital Movement und Dr. B.-DIGITEC – Start">
+        <img class="dm-logo" src="../digitec-x-digitalmovement/assets/logo-digital-movement.svg" alt="Digital Movement">
+        <span class="brand-divider" aria-hidden="true"></span>
+        <img class="client-logo" src="../digitec-x-digitalmovement/assets/logo-digitec.svg" alt="Dr. B.-DIGITEC">
+      </a>
+      <nav class="nav-actions" aria-label="Seitennavigation">
+        <a class="nav-link" href="#preise">Angebot auswählen</a>
+        <div class="cart-overview">
+          <a class="cart-chip" href="#warenkorb" aria-label="Auswahl und Preisübersicht öffnen">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H6M10 20h.01M17 20h.01"/></svg>
+            <span>Auswahl</span>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+          <div class="cart-popover" aria-label="Aktuelle Preisübersicht">
+            <div class="popover-head">
+              <strong>Ihre Auswahl</strong>
+              <span id="popover-count">0 Leistungen</span>
+            </div>
+            <p class="popover-empty" id="popover-empty">Noch keine Leistung ausgewählt.</p>
+            <div class="popover-items" id="popover-items"></div>
+            <div class="popover-totals">
+              <div class="popover-total"><span>Monatlich</span><strong id="popover-monthly">0 €</strong></div>
+              <div class="popover-total"><span>Einmalig</span><strong id="popover-onetime">0 €</strong></div>
+            </div>
+            <a class="popover-button" href="#warenkorb">Auswahl prüfen</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="hero-brands" aria-label="Dr. B.-DIGITEC und Digital Movement">
+            <img class="hero-digitec" src="../digitec-x-digitalmovement/assets/logo-digitec.svg" alt="Dr. B.-DIGITEC">
+            <span class="hero-brand-divider" aria-hidden="true"></span>
+            <img class="hero-dm" src="../digitec-x-digitalmovement/assets/logo-digital-movement.svg" alt="Digital Movement">
+          </div>
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Follow-up zum Gespräch · 23. Juli 2026</p>
+          <h1>DIGITEC – <span class="gradient-text">DIGITALES WACHSTUM</span></h1>
+          <div class="platform-note" role="note" aria-label="Digitales Wachstum durch Sichtbarkeit auf Google, ChatGPT, Claude, Perplexity und LinkedIn">
+            <span>Digitales Wachstum durch Sichtbarkeit auf</span>
+            <div class="platform-brands">
+              <span class="platform-brand google"><img src="../digitec-x-digitalmovement/assets/logo-google.webp" alt="Google"></span>
+              <span class="platform-brand chatgpt"><img src="../digitec-x-digitalmovement/assets/logo-chatgpt.svg" alt=""><strong>ChatGPT</strong></span>
+              <span class="platform-brand claude"><img src="../digitec-x-digitalmovement/assets/logo-claude.svg" alt="Claude"></span>
+              <span class="platform-brand perplexity"><img src="../digitec-x-digitalmovement/assets/logo-perplexity.svg" alt=""><strong>Perplexity</strong></span>
+              <span class="platform-brand linkedin"><img src="../digitec-x-digitalmovement/assets/logo-linkedin.png" alt="LinkedIn"></span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="button" href="#leistungsumfang">Siehe Value &amp; Preis <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-trust">
+            <div class="hero-people" aria-label="Dr. Markus Beckers und Raoul Alex Müller">
+              <img class="dr-beckers" src="../digitec-x-digitalmovement/assets/dr-beckers-portrait.png" alt="Dr. Markus Beckers">
+              <img src="../digitec-x-digitalmovement/assets/founder-raoul.jpg" alt="Raoul Alex Müller">
+            </div>
+            <div class="hero-trust-copy">
+              <strong>Digital Movement · seit 2018</strong>
+              <a href="https://www.digitalmovement.com.au/" target="_blank" rel="noopener">100+ 5-Sterne-Google-Bewertungen ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-growth" aria-label="LinkedIn, SEO und GEO sowie Website führen gemeinsam zu neuen Kunden">
+          <div class="growth-intro">
+            <span>3 Wege</span>
+            <strong>Ein gemeinsames Ziel.</strong>
+          </div>
+          <div class="growth-stack" aria-hidden="true">
+            <span class="growth-channel linkedin"><i>01</i>LinkedIn</span>
+            <span class="growth-channel search"><i>02</i>SEO + GEO</span>
+            <span class="growth-channel website"><i>03</i>Website</span>
+          </div>
+          <div class="growth-result">
+            <span>Ergebnis</span>
+            <strong>Neue<br>Kunden.</strong>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#leistungsumfang"><i aria-hidden="true"></i>Weiter</a>
+    </section>
+
+    <section class="pricing" id="preise" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="section-kicker">Angebot</span>
+          <h2 id="pricing-title">Leistungen <span class="gradient-text">auswählen.</span></h2>
+          <p>Wählen Sie die passenden Bausteine. Die beiden Preise werden direkt darunter zusammengefasst. <a class="overview-jump" href="#leistungsumfang">Leistungsumfang ansehen</a></p>
+        </header>
+
+        <nav class="mobile-service-nav" aria-label="Leistungen">
+          <a class="active" href="#service-linkedin" aria-current="step"><span>01</span>LinkedIn</a>
+          <a href="#service-seo"><span>02</span>SEO</a>
+          <a href="#service-website"><span>03</span>Website</a>
+        </nav>
+
+        <div class="pricing-layout">
+          <div class="service-grid">
+          <article class="service-card reveal" id="service-linkedin" data-card="linkedin">
+            <span class="service-index" aria-hidden="true">01</span>
+            <div class="service-top">
+              <h3 class="service-title">
+                <span class="service-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M7 9v8M7 6.5v.01M11 17v-4.5a3.5 3.5 0 0 1 7 0V17M11 9v8M3 3h18v18H3z"/></svg>
+                </span>
+                LinkedIn
+              </h3>
+              <span class="currency">EUR · MONATLICH</span>
+            </div>
+            <div class="options">
+              <button class="option" type="button" aria-pressed="false" data-id="linkedin-automation" data-name="LinkedIn-Automatisierung" data-monthly="900" data-onetime="0">
+                <span class="selector" aria-hidden="true"></span>
+                <span class="option-copy">
+                  <span class="option-name">Automatisierung</span>
+                  <span class="option-detail">Kontakte und Nachrichten</span>
+                </span>
+                <span class="option-price"><strong>900 €</strong><small>/ Monat</small></span>
+              </button>
+              <button class="option" type="button" aria-pressed="false" data-id="content-calendar" data-name="Content-Kalender" data-monthly="600" data-onetime="0">
+                <span class="selector" aria-hidden="true"></span>
+                <span class="option-copy">
+                  <span class="option-name">Content-Kalender</span>
+                  <span class="option-detail">Themen und Post-Vorschläge</span>
+                </span>
+                <span class="option-price"><strong>600 €</strong><small>/ Monat</small></span>
+              </button>
+            </div>
+            <p class="card-foot">Beide Leistungen sind <strong>einzeln auswählbar.</strong></p>
+          </article>
+
+          <article class="service-card reveal" id="service-seo" data-card="seo">
+            <span class="service-index" aria-hidden="true">02</span>
+            <div class="service-top">
+              <h3 class="service-title">
+                <span class="service-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5M8 10.5h5M10.5 8v5"/></svg>
+                </span>
+                SEO
+              </h3>
+              <span class="currency">EUR · MONATLICH</span>
+            </div>
+            <div class="options">
+              <button class="option radio" type="button" aria-pressed="false" data-group="seo" data-id="seo-basic" data-name="SEO Basic · 5 Seiten" data-monthly="1199" data-onetime="0">
+                <span class="selector" aria-hidden="true"></span>
+                <span class="option-copy">
+                  <span class="option-name">Basic</span>
+                  <span class="option-detail">5 neue Seiten</span>
+                </span>
+                <span class="option-price"><strong>1.199 €</strong><small>/ Monat</small></span>
+              </button>
+              <button class="option radio" type="button" aria-pressed="false" data-group="seo" data-id="seo-standard" data-name="SEO Standard · 15 Seiten" data-monthly="2499" data-onetime="0">
+                <span class="selector" aria-hidden="true"></span>
+                <span class="option-copy">
+                  <span class="option-name">Standard</span>
+                  <span class="option-detail">15 neue Seiten</span>
+                </span>
+                <span class="option-price"><strong>2.499 €</strong><small>/ Monat</small></span>
+              </button>
+              <button class="option radio" type="button" aria-pressed="false" data-group="seo" data-id="seo-max" data-name="SEO Max · 50 Seiten" data-monthly="4990" data-onetime="0">
+                <span class="selector" aria-hidden="true"></span>
+                <span class="option-copy">
+                  <span class="option-name">Max</span>
+                  <span class="option-detail">50 neue Seiten</span>
+                </span>
+                <span class="option-price"><strong>4.990 €</strong><small>/ Monat</small></span>
+              </button>
+            </div>
+            <p class="card-foot"><strong>6 Monate</strong> Mindestvertragslaufzeit.</p>
+          </article>
+
+          <article class="service-card reveal" id="service-website" data-card="website">
+            <span class="service-index" aria-hidden="true">03</span>
+            <div class="service-top">
+              <h3 class="service-title">
+                <span class="service-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18M7 6h.01M10 6h.01M7 12h10M7 16h7"/></svg>
+                </span>
+                Website
+              </h3>
+              <span class="currency">EUR · EINMALIG</span>
+            </div>
+            <div class="options">
+              <button class="option" type="button" aria-pressed="false" data-id="website-development" data-name="Full-Stack Website Design &amp; Development" data-monthly="0" data-onetime="7499">
+                <span class="selector" aria-hidden="true"></span>
+                <span class="option-copy">
+                  <span class="option-name">Full-Stack Website Design &amp; Development</span>
+                  <span class="option-detail">Konzeption, UX/UI-Design, Frontend- und Backend-Entwicklung, Launch</span>
+                </span>
+                <span class="option-price"><strong>7.499 €</strong><small>einmalig</small></span>
+              </button>
+            </div>
+            <div class="bundle-disclaimer" role="note">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3.5 7.5 12 12l8.5-4.5L12 3Z"/><path d="m5 11 7 3.7 7-3.7M5 15l7 3.7 7-3.7"/></svg>
+              <span><strong>Mit SEO Standard inklusive:</strong> Wird beides gewählt, entfällt der Preis für die Full-Stack Website vollständig.</span>
+            </div>
+            <p class="card-foot">Ohne SEO Standard gilt der <strong>einmalige Festpreis.</strong></p>
+          </article>
+          </div>
+
+        <aside class="cart reveal" id="warenkorb" aria-live="polite" aria-labelledby="cart-title">
+          <div>
+            <div class="cart-heading">
+              <span class="cart-heading-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H6M10 20h.01M17 20h.01"/></svg>
+              </span>
+              <div>
+                <span class="cart-kicker">Live-Preisübersicht</span>
+                <h3 id="cart-title">Ihre Auswahl</h3>
+              </div>
+            </div>
+            <p class="cart-empty" id="cart-empty">Noch keine Leistung ausgewählt.</p>
+            <div class="cart-items" id="cart-items"></div>
+            <p class="cart-discount" id="monthly-discount" hidden></p>
+            <p class="cart-discount" id="cart-discount" hidden>✓ Full-Stack Website inklusive · 7.499 € entfallen</p>
+            <div class="discount-selector" aria-labelledby="discount-title">
+              <div class="discount-intro">
+                <span>Optional</span>
+                <strong id="discount-title">Monatliche Rabatte</strong>
+              </div>
+              <span class="discount-badge">bis zu −30 %</span>
+              <div class="discount-options">
+                <button class="discount-option" type="button" aria-pressed="false" data-discount="20" data-discount-name="20 % Sign-up-Rabatt">
+                  <span class="selector" aria-hidden="true"></span>
+                  <span class="discount-copy">
+                    <strong>−20 % Sign&#8209;up</strong>
+                    <small>Monatliche Leistungen</small>
+                  </span>
+                </button>
+                <button class="discount-option" type="button" aria-pressed="false" aria-describedby="special-discount-note" data-discount="10" data-discount-name="10 % Sonderrabatt" data-requires="linkedin-seo" disabled>
+                  <span class="selector" aria-hidden="true"></span>
+                  <span class="discount-copy">
+                    <strong>−10 % Sonderrabatt</strong>
+                    <small id="special-discount-note">Bei LinkedIn + SEO</small>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="cart-side">
+            <div class="totals">
+              <div class="total">
+                <span>Monatlich</span>
+                <strong id="monthly-total">0 €</strong>
+              </div>
+              <div class="total">
+                <span>Einmalig</span>
+                <strong id="onetime-total">0 €</strong>
+                <small class="total-saving" id="onetime-saving" hidden>7.499 € gespart</small>
+              </div>
+            </div>
+            <button class="cart-continue" id="cart-continue" type="button" disabled>Auswahl übernehmen&nbsp; →</button>
+          </div>
+          </aside>
+        </div>
+        <p class="pricing-note">Alle Preise zuzüglich gesetzlicher Umsatzsteuer.</p>
+      </div>
+    </section>
+
+    <section class="service-overview" id="leistungsumfang" aria-labelledby="overview-title">
+      <div class="wrap">
+        <header class="section-head overview-head reveal">
+          <span class="section-kicker">Leistungsumfang</span>
+          <h2 id="overview-title">Das ist <span class="gradient-text">enthalten.</span></h2>
+          <p>Die wichtigsten Leistungen auf einen Blick. Weitere Einzelheiten lassen sich bei Bedarf öffnen.</p>
+        </header>
+
+        <div class="service-detail-grid">
+          <article class="service-detail-card reveal" data-service="linkedin">
+            <header class="service-detail-head">
+              <span class="service-detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 9v8M7 6.5v.01M11 17v-4.5a3.5 3.5 0 0 1 7 0V17M11 9v8M3 3h18v18H3z"/></svg>
+              </span>
+              <div class="service-detail-title">
+                <span>2 Bausteine · einzeln kombinierbar</span>
+                <h3>LinkedIn-Automatisierung</h3>
+                <p>Passende Praxisinhaber finden, ansprechen und regelmäßig sichtbar bleiben.</p>
+                <div class="service-platform-proof linkedin">
+                  <img src="../digitec-x-digitalmovement/assets/logo-linkedin.png" alt="LinkedIn">
+                  <strong>Tägliche automatisierte Neukunden-Akquise und zielgruppenrelevante Posts</strong>
+                </div>
+              </div>
+              <span class="overview-status" id="overview-status-linkedin">Noch nicht ausgewählt</span>
+            </header>
+
+            <div class="service-journey" aria-label="LinkedIn-Ablauf">
+              <div class="journey-step"><i>01</i><strong>Zielgruppe</strong><span>Praxen und Entscheider festlegen</span></div>
+              <div class="journey-step"><i>02</i><strong>Ansprache</strong><span>Kontakte und Nachrichten einrichten</span></div>
+              <div class="journey-step"><i>03</i><strong>Laufender Betrieb</strong><span>Dialoge und Inhalte weiterführen</span></div>
+            </div>
+
+            <div class="business-impact">
+              <span class="impact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 18 10 12l4 4 6-9"/><path d="M15 7h5v5"/></svg>
+              </span>
+              <div class="impact-copy">
+                <span>Beitrag zu Wachstum &amp; Umsatz</span>
+                <h4>Mehr Gespräche mit passenden Praxen</h4>
+                <p>Die direkte Ansprache schafft regelmäßig neue Kontaktchancen – auch bevor eine Praxis aktiv nach einer Lösung sucht.</p>
+              </div>
+              <div class="impact-points">
+                <span class="impact-point">Neue Praxis-Kontakte</span>
+                <span class="impact-point">Konsequente Follow-ups</span>
+                <span class="impact-point">Regelmäßige Sichtbarkeit</span>
+              </div>
+            </div>
+
+            <div class="editorial-deliverables-tile">
+            <p class="inclusion-label">Im Kern enthalten</p>
+            <div class="service-inclusions">
+              <div class="inclusion"><i>1k+</i><strong>LinkedIn-Zielaccounts</strong><span>Deutschlandweite Liste passender Praxen.</span></div>
+              <div class="inclusion"><i>↗</i><strong>Tägliche Kontaktanfragen</strong><span>Automatisierter und kontrollierter Versand.</span></div>
+              <div class="inclusion"><i>✉</i><strong>Nachrichten &amp; Follow-ups</strong><span>Erstansprache und Folgeschritte im Ablauf.</span></div>
+              <div class="inclusion"><i>3×</i><strong>Post-Vorschläge pro Woche</strong><span>Themen, Kernaussagen und passende Tonalität.</span></div>
+            </div>
+
+            <details class="service-more">
+              <summary><span class="summary-closed">Vollständigen Leistungsumfang anzeigen</span><span class="summary-open">Leistungsumfang ausblenden</span></summary>
+              <div class="service-more-content">
+                <div class="service-more-grid">
+                  <div class="service-more-item">Praxistabelle mit Zahnarztpraxen in ganz Deutschland</div>
+                  <div class="service-more-item">Suche nach Praxisinhabern und Entscheidern auf LinkedIn</div>
+                  <div class="service-more-item">Qualitätsprüfung der Kontakte vor der Ansprache</div>
+                  <div class="service-more-item">Dashboard für Desktop und Mobilgerät</div>
+                  <div class="service-more-item">Aufwärmen, Kontaktanfrage, Erstnachricht und Follow-up</div>
+                  <div class="service-more-item">Recherche relevanter Themen für Praxisinhaber</div>
+                  <div class="service-more-item">Drei Post-Vorschläge pro Woche mit Titel und Kernaussagen</div>
+                  <div class="service-more-item">Inhalte angelehnt an die Tonalität von Dr. Beckers</div>
+                </div>
+              </div>
+            </details>
+            </div>
+
+            <footer class="service-detail-footer">
+              <p>Automatisierung und Content-Kalender können einzeln oder gemeinsam gewählt werden.</p>
+              <a class="service-select-link" data-overview-link="linkedin" href="#service-linkedin">LinkedIn auswählen</a>
+            </footer>
+          </article>
+
+          <article class="service-detail-card reveal" data-service="seo">
+            <header class="service-detail-head">
+              <span class="service-detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5M8 10.5h5M10.5 8v5"/></svg>
+              </span>
+              <div class="service-detail-title">
+                <span>3 Pakete · 5 bis 50 neue Seiten</span>
+                <h3>SEO &amp; GEO</h3>
+                <p>Neue Seiten für Google und KI-Suchen planen, erstellen und laufend verbessern.</p>
+                <div class="service-platform-proof seo" aria-label="Optimierung für Google, ChatGPT, Claude und Perplexity">
+                  <span class="proof-label">Optimierung für</span>
+                  <span class="proof-brands">
+                    <span class="proof-brand google"><img src="../digitec-x-digitalmovement/assets/logo-google.webp" alt="Google"></span>
+                    <span class="proof-brand chatgpt"><img src="../digitec-x-digitalmovement/assets/logo-chatgpt.svg" alt=""><strong>ChatGPT</strong></span>
+                    <span class="proof-brand claude"><img src="../digitec-x-digitalmovement/assets/logo-claude.svg" alt="Claude"></span>
+                    <span class="proof-brand perplexity"><img src="../digitec-x-digitalmovement/assets/logo-perplexity.svg" alt=""><strong>Perplexity</strong></span>
+                  </span>
+                </div>
+              </div>
+              <span class="overview-status" id="overview-status-seo">Noch nicht ausgewählt</span>
+            </header>
+
+            <div class="service-journey" aria-label="SEO- und GEO-Ablauf">
+              <div class="journey-step"><i>01</i><strong>Recherche</strong><span>Wichtige Suchthemen identifizieren</span></div>
+              <div class="journey-step"><i>02</i><strong>Neue Seiten</strong><span>Texte, Design und Technik umsetzen</span></div>
+              <div class="journey-step"><i>03</i><strong>Optimierung</strong><span>Entwicklung messen und verbessern</span></div>
+            </div>
+
+            <div class="business-impact">
+              <span class="impact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 18 10 12l4 4 6-9"/><path d="M15 7h5v5"/></svg>
+              </span>
+              <div class="impact-copy">
+                <span>Beitrag zu Wachstum &amp; Umsatz</span>
+                <h4>Mehr Anfragen von suchenden Praxen</h4>
+                <p>Digitec wird sichtbar, wenn Praxen bereits nach passenden Leistungen suchen. Jede relevante Seite eröffnet einen weiteren Weg zu Digitec.</p>
+              </div>
+              <div class="impact-points">
+                <span class="impact-point">Mehr relevante Suchzugänge</span>
+                <span class="impact-point">Langfristig auffindbar</span>
+                <span class="impact-point">Direkte Kontaktwege</span>
+              </div>
+            </div>
+
+            <div class="editorial-deliverables-tile">
+            <p class="inclusion-label">Im Kern enthalten</p>
+            <div class="service-inclusions">
+              <div class="inclusion"><i>01</i><strong>Suchthemen &amp; Seitenplan</strong><span>Klare Zuordnung von Thema, Seite und Ziel.</span></div>
+              <div class="inclusion"><i>02</i><strong>Neue Texte und Seiten</strong><span>Eigene Inhalte für jede geplante Seite.</span></div>
+              <div class="inclusion"><i>03</i><strong>Google &amp; KI-Suche</strong><span>Optimierung für Google, ChatGPT, Claude und Perplexity.</span></div>
+              <div class="inclusion"><i>04</i><strong>Monatliche Auswertung</strong><span>Entwicklung, Ergebnisse und nächste Schritte.</span></div>
+            </div>
+
+            <details class="service-more">
+              <summary><span class="summary-closed">Pakete und Ablauf im Detail anzeigen</span><span class="summary-open">Details ausblenden</span></summary>
+              <div class="service-more-content">
+                <div class="service-more-grid">
+                  <div class="service-more-item">Basic: 5 neue Seiten innerhalb der Mindestvertragslaufzeit</div>
+                  <div class="service-more-item">Standard: 15 neue Seiten innerhalb der Mindestvertragslaufzeit</div>
+                  <div class="service-more-item">Max: 50 neue Seiten innerhalb der Mindestvertragslaufzeit</div>
+                  <div class="service-more-item">Identifikation der wichtigsten Google-Suchbegriffe</div>
+                  <div class="service-more-item">Texterstellung und Gestaltung jeder neuen Seite</div>
+                  <div class="service-more-item">Technische und inhaltliche SEO-Optimierung</div>
+                  <div class="service-more-item">GEO-Optimierung für relevante KI-Suchen</div>
+                  <div class="service-more-item">Laufende Verbesserung und monatlicher Bericht</div>
+                </div>
+              </div>
+            </details>
+            </div>
+
+            <footer class="service-detail-footer">
+              <p>Für alle SEO-Pakete gilt eine Mindestvertragslaufzeit von sechs Monaten.</p>
+              <a class="service-select-link" data-overview-link="seo" href="#service-seo">SEO-Paket auswählen</a>
+            </footer>
+          </article>
+
+          <article class="service-detail-card reveal" data-service="website">
+            <header class="service-detail-head">
+              <span class="service-detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18M7 6h.01M10 6h.01M7 12h10M7 16h7"/></svg>
+              </span>
+              <div class="service-detail-title">
+                <span>Einmaliges Projekt · Design &amp; Development</span>
+                <h3>Full-Stack Website</h3>
+                <p>Design, technische Umsetzung und Veröffentlichung aus einer Hand.</p>
+              </div>
+              <span class="overview-status" id="overview-status-website">Noch nicht ausgewählt</span>
+            </header>
+
+            <div class="service-journey" aria-label="Website-Ablauf">
+              <div class="journey-step"><i>01</i><strong>Konzept</strong><span>Struktur und Inhalte festlegen</span></div>
+              <div class="journey-step"><i>02</i><strong>Design</strong><span>Visuelle Richtung ausarbeiten</span></div>
+              <div class="journey-step"><i>03</i><strong>Umsetzung</strong><span>Technik, Prüfung und Launch</span></div>
+            </div>
+
+            <div class="business-impact">
+              <span class="impact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 18 10 12l4 4 6-9"/><path d="M15 7h5v5"/></svg>
+              </span>
+              <div class="impact-copy">
+                <span>Beitrag zu Wachstum &amp; Umsatz</span>
+                <h4>Mehr Vertrauen vor dem ersten Gespräch</h4>
+                <p>Ein klarer, hochwertiger Auftritt macht Leistungen leichter verständlich und senkt die Hürde zur Kontaktaufnahme.</p>
+              </div>
+              <div class="impact-points">
+                <span class="impact-point">Stärkerer Markenauftritt</span>
+                <span class="impact-point">Klarere Entscheidungsgrundlage</span>
+                <span class="impact-point">Einfachere Kontaktaufnahme</span>
+              </div>
+            </div>
+
+            <div class="editorial-deliverables-tile">
+            <p class="inclusion-label">Im Kern enthalten</p>
+            <div class="service-inclusions">
+              <div class="inclusion"><i>01</i><strong>Struktur &amp; Nutzerführung</strong><span>Klare Reihenfolge für Leistungen und Inhalte.</span></div>
+              <div class="inclusion"><i>02</i><strong>Individuelles Webdesign</strong><span>Hochwertige Gestaltung im Digitec-Auftritt.</span></div>
+              <div class="inclusion"><i>03</i><strong>Frontend &amp; Backend</strong><span>Sichtbare Website und technische Funktionen.</span></div>
+              <div class="inclusion"><i>04</i><strong>Prüfung &amp; Launch</strong><span>Saubere Darstellung auf Desktop und Mobilgerät.</span></div>
+            </div>
+
+            <details class="service-more">
+              <summary><span class="summary-closed">Website-Leistungen im Detail anzeigen</span><span class="summary-open">Website-Details ausblenden</span></summary>
+              <div class="service-more-content">
+                <div class="service-more-grid">
+                  <div class="service-more-item">Konzeption der Seitenstruktur und Nutzerführung</div>
+                  <div class="service-more-item">Individuelles UX- und UI-Design für Dr. B.-DIGITEC</div>
+                  <div class="service-more-item">Frontend-Entwicklung der sichtbaren Website</div>
+                  <div class="service-more-item">Backend-Entwicklung der benötigten Funktionen</div>
+                  <div class="service-more-item">Responsive Umsetzung und technische Qualitätsprüfung</div>
+                  <div class="service-more-item">Website-Launch nach gemeinsamer Freigabe</div>
+                </div>
+              </div>
+            </details>
+            </div>
+
+            <footer class="service-detail-footer">
+              <p>Mit SEO Standard ausgewählt, wird der einmalige Website-Preis vollständig erlassen.</p>
+              <a class="service-select-link" data-overview-link="website" href="#service-website">Website auswählen</a>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="checkout" id="checkout" aria-labelledby="checkout-title" hidden>
+      <div class="wrap">
+        <nav class="checkout-progress" aria-label="Bestellfortschritt">
+          <span class="progress-step done"><i>✓</i>Auswahl</span>
+          <span class="progress-step active"><i>2</i>Kontaktdaten</span>
+          <span class="progress-step"><i>3</i>Bestätigung</span>
+        </nav>
+
+        <div class="checkout-layout">
+          <div class="checkout-stack">
+            <article class="checkout-card">
+              <header class="checkout-card-head">
+                <div>
+                  <h2 id="checkout-title">Wer bestellt?</h2>
+                  <p>Diese Angaben verwenden wir für Bestätigung und Vertrag.</p>
+                </div>
+                <span class="secure-label">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                  Sicher
+                </span>
+              </header>
+
+              <form class="checkout-form" id="checkout-form">
+                <div class="field">
+                  <label for="first-name">Vorname</label>
+                  <input id="first-name" name="firstName" autocomplete="given-name" required>
+                </div>
+                <div class="field">
+                  <label for="last-name">Nachname</label>
+                  <input id="last-name" name="lastName" autocomplete="family-name" required>
+                </div>
+                <div class="field">
+                  <label for="email">E-Mail</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                  <label for="phone">Telefon</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+                </div>
+                <div class="field full">
+                  <label for="company">Unternehmen</label>
+                  <input id="company" name="company" autocomplete="organization" value="Dr. B.-DIGITEC GmbH" required>
+                </div>
+                <div class="field full">
+                  <label for="address">Straße und Hausnummer</label>
+                  <input id="address" name="address" autocomplete="street-address" required>
+                </div>
+                <div class="field">
+                  <label for="postal-code">Postleitzahl</label>
+                  <input id="postal-code" name="postalCode" autocomplete="postal-code" inputmode="numeric" required>
+                </div>
+                <div class="field">
+                  <label for="city">Ort</label>
+                  <input id="city" name="city" autocomplete="address-level2" required>
+                </div>
+                <label class="checkout-consent">
+                  <input type="checkbox" name="confirmed" required>
+                  <span>Ich bestätige die Auswahl und die angegebenen Unternehmensdaten. Alle Preise verstehen sich zuzüglich gesetzlicher Umsatzsteuer.</span>
+                </label>
+                <p class="form-error" id="form-error" role="alert" hidden></p>
+                <button class="checkout-submit" id="checkout-submit" type="submit">Bestellung absenden</button>
+              </form>
+            </article>
+
+            <article class="checkout-card">
+              <header class="checkout-card-head">
+                <div>
+                  <h3>Was passiert danach?</h3>
+                  <p>Die nächsten Schritte kommen automatisch per E-Mail.</p>
+                </div>
+              </header>
+              <div class="delivery-steps">
+                <div class="delivery-step"><i>Jetzt</i><div><strong>Bestätigung &amp; Willkommen</strong><span>Direkt nach der Bestellung</span></div></div>
+                <div class="delivery-step"><i>+1</i><div><strong>Vertragsunterlagen</strong><span>24 Stunden später als PDF</span></div></div>
+              </div>
+            </article>
+          </div>
+
+          <aside class="checkout-summary" aria-label="Bestellübersicht">
+            <div class="summary-top">
+              <span>Ihre Auswahl</span>
+              <h3>Bestellübersicht</h3>
+              <button class="summary-edit" id="summary-edit" type="button">Ändern</button>
+            </div>
+            <div class="checkout-summary-items" id="checkout-summary-items"></div>
+            <div class="checkout-summary-totals">
+              <div class="checkout-total-row monthly"><span>Monatlich</span><strong id="checkout-monthly">0 €</strong></div>
+              <div class="checkout-total-row"><span>Einmalig</span><strong id="checkout-onetime">0 €</strong></div>
+              <p class="checkout-summary-note">Zuzüglich gesetzlicher Umsatzsteuer. Rabatte und enthaltene Leistungen sind bereits berücksichtigt.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="confirmation" id="confirmation" aria-labelledby="confirmation-title" hidden>
+      <div class="confirmation-card">
+        <div class="confirmation-icon" aria-hidden="true">✓</div>
+        <span class="section-kicker">Bestellung eingegangen</span>
+        <h2 id="confirmation-title">Willkommen bei Digital Movement.</h2>
+        <p>Die Bestätigung ist unterwegs. Die Vertragsunterlagen folgen automatisch in 24 Stunden an die angegebene E-Mail-Adresse.</p>
+        <span class="confirmation-order" id="confirmation-order"></span>
+      </div>
+    </section>
+  </main>
+
+  <div class="mobile-checkout-bar" id="mobile-checkout-bar" hidden>
+    <button class="mobile-total" id="mobile-total" type="button">
+      <span id="mobile-total-label">Monatlich · 0 Leistungen</span>
+      <strong id="mobile-monthly">0 €</strong>
+      <small id="mobile-onetime">+ 0 € einmalig</small>
+    </button>
+    <button class="mobile-next" id="mobile-next" type="button" disabled>Auswählen</button>
+  </div>
+
+  <div class="mobile-price-sheet" id="mobile-price-sheet" hidden>
+    <div class="mobile-price-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="mobile-sheet-title">
+      <div class="mobile-sheet-handle" aria-hidden="true"></div>
+      <div class="mobile-sheet-head">
+        <h3 id="mobile-sheet-title">Ihre Auswahl</h3>
+        <button class="mobile-sheet-close" id="mobile-sheet-close" type="button" aria-label="Preisübersicht schließen">×</button>
+      </div>
+      <div class="mobile-sheet-items" id="mobile-sheet-items"></div>
+      <div class="mobile-sheet-benefits" id="mobile-sheet-benefits"></div>
+      <div class="mobile-sheet-totals">
+        <div class="mobile-sheet-total"><span>Monatlich</span><strong id="mobile-sheet-monthly">0 €</strong></div>
+        <div class="mobile-sheet-total"><span>Einmalig</span><strong id="mobile-sheet-onetime">0 €</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const pricingSection = document.getElementById("preise");
+      const overviewSection = document.getElementById("leistungsumfang");
+      if (pricingSection && overviewSection) pricingSection.before(overviewSection);
+
+      const wholeFormatter = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 0 });
+      const decimalFormatter = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      const formatMoney = value => Number.isInteger(value) ? wholeFormatter.format(value) : decimalFormatter.format(value);
+      const options = [...document.querySelectorAll(".option")];
+      const discountOptions = [...document.querySelectorAll(".discount-option")];
+      const cards = [...document.querySelectorAll(".service-card")];
+      const overviewCards = [...document.querySelectorAll(".service-detail-card")];
+      const cartItems = document.getElementById("cart-items");
+      const cartEmpty = document.getElementById("cart-empty");
+      const cartCount = document.getElementById("cart-count");
+      const monthlyTotal = document.getElementById("monthly-total");
+      const onetimeTotal = document.getElementById("onetime-total");
+      const onetimeSaving = document.getElementById("onetime-saving");
+      const cartDiscount = document.getElementById("cart-discount");
+      const monthlyDiscount = document.getElementById("monthly-discount");
+      const continueButton = document.getElementById("cart-continue");
+      const popoverItems = document.getElementById("popover-items");
+      const popoverEmpty = document.getElementById("popover-empty");
+      const popoverCount = document.getElementById("popover-count");
+      const popoverMonthly = document.getElementById("popover-monthly");
+      const popoverOnetime = document.getElementById("popover-onetime");
+      const checkout = document.getElementById("checkout");
+      const checkoutSummaryItems = document.getElementById("checkout-summary-items");
+      const checkoutMonthly = document.getElementById("checkout-monthly");
+      const checkoutOnetime = document.getElementById("checkout-onetime");
+      const summaryEdit = document.getElementById("summary-edit");
+      const checkoutForm = document.getElementById("checkout-form");
+      const checkoutSubmit = document.getElementById("checkout-submit");
+      const formError = document.getElementById("form-error");
+      const confirmation = document.getElementById("confirmation");
+      const confirmationOrder = document.getElementById("confirmation-order");
+      const mobileBar = document.getElementById("mobile-checkout-bar");
+      const mobileMonthly = document.getElementById("mobile-monthly");
+      const mobileOnetime = document.getElementById("mobile-onetime");
+      const mobileTotalLabel = document.getElementById("mobile-total-label");
+      const mobileNext = document.getElementById("mobile-next");
+      const mobileTotal = document.getElementById("mobile-total");
+      const mobilePriceSheet = document.getElementById("mobile-price-sheet");
+      const mobileSheetClose = document.getElementById("mobile-sheet-close");
+      const mobileSheetItems = document.getElementById("mobile-sheet-items");
+      const mobileSheetBenefits = document.getElementById("mobile-sheet-benefits");
+      const mobileSheetMonthly = document.getElementById("mobile-sheet-monthly");
+      const mobileSheetOnetime = document.getElementById("mobile-sheet-onetime");
+      const orderEndpoint = document.querySelector('meta[name="dm-order-endpoint"]')?.content || "";
+      let currentState = null;
+      let orderComplete = false;
+      const mobileVisibleSections = { pricing: false, overview: false, checkout: false };
+
+      const selected = () => options.filter(option => option.getAttribute("aria-pressed") === "true");
+      const syncMobileBarVisibility = () => {
+        mobileBar.hidden = orderComplete || (!mobileVisibleSections.pricing && !mobileVisibleSections.checkout);
+      };
+      const closeMobileSheet = () => {
+        mobilePriceSheet.hidden = true;
+        mobileTotal.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      };
+
+      const render = () => {
+        const items = selected();
+        const baseMonthly = items.reduce((sum, item) => sum + Number(item.dataset.monthly || 0), 0);
+        const hasLinkedIn = items.some(item => item.dataset.id === "linkedin-automation" || item.dataset.id === "content-calendar");
+        const hasSeo = items.some(item => item.dataset.group === "seo");
+        const specialDiscountOption = discountOptions.find(option => option.dataset.requires === "linkedin-seo");
+        const specialDiscountEligible = hasLinkedIn && hasSeo;
+        if (specialDiscountOption) {
+          specialDiscountOption.disabled = !specialDiscountEligible;
+          specialDiscountOption.setAttribute("aria-disabled", String(!specialDiscountEligible));
+          if (!specialDiscountEligible) specialDiscountOption.setAttribute("aria-pressed", "false");
+          const note = document.getElementById("special-discount-note");
+          if (note) note.textContent = specialDiscountEligible ? "Freigeschaltet: LinkedIn + SEO" : "Bei LinkedIn + SEO";
+        }
+        const discountPercent = discountOptions
+          .filter(option => !option.disabled && option.getAttribute("aria-pressed") === "true")
+          .reduce((sum, option) => sum + Number(option.dataset.discount || 0), 0);
+        const monthlySaving = baseMonthly * discountPercent / 100;
+        const monthly = baseMonthly - monthlySaving;
+        const rawOnetime = items.reduce((sum, item) => sum + Number(item.dataset.onetime || 0), 0);
+        const websiteWaived =
+          items.some(item => item.dataset.id === "seo-standard") &&
+          items.some(item => item.dataset.id === "website-development");
+        const onetime = websiteWaived ? rawOnetime - 7499 : rawOnetime;
+        currentState = {
+          items,
+          baseMonthly,
+          discountPercent,
+          monthlySaving,
+          monthly,
+          rawOnetime,
+          websiteWaived,
+          onetime
+        };
+
+        cartItems.replaceChildren();
+        items.forEach(item => {
+          const pill = document.createElement("div");
+          pill.className = "cart-item";
+          const copy = document.createElement("span");
+          copy.className = "cart-item-copy";
+          const name = document.createElement("span");
+          name.className = "cart-item-name";
+          name.textContent = item.dataset.name;
+          const price = document.createElement("strong");
+          price.className = "cart-item-price";
+          price.textContent = Number(item.dataset.monthly)
+            ? `${formatMoney(Number(item.dataset.monthly))} € / M.`
+            : websiteWaived ? "inklusive" : `${formatMoney(Number(item.dataset.onetime || 0))} €`;
+          copy.append(name, price);
+          const remove = document.createElement("button");
+          remove.type = "button";
+          remove.setAttribute("aria-label", `${item.dataset.name} entfernen`);
+          remove.textContent = "×";
+          remove.addEventListener("click", () => {
+            item.setAttribute("aria-pressed", "false");
+            render();
+          });
+          pill.append(copy, remove);
+          cartItems.append(pill);
+        });
+
+        cartEmpty.hidden = items.length > 0;
+        cartCount.textContent = items.length;
+        monthlyTotal.textContent = `${formatMoney(monthly)} €`;
+        onetimeTotal.textContent = `${formatMoney(onetime)} €`;
+        monthlyDiscount.textContent = `✓ ${discountPercent} % Monatsrabatt · ${formatMoney(monthlySaving)} € gespart`;
+        monthlyDiscount.hidden = discountPercent === 0 || baseMonthly === 0;
+        cartDiscount.hidden = !websiteWaived;
+        onetimeSaving.hidden = !websiteWaived;
+        continueButton.disabled = items.length === 0;
+        popoverItems.replaceChildren();
+        popoverEmpty.hidden = items.length > 0;
+        popoverCount.textContent = `${items.length} ${items.length === 1 ? "Leistung" : "Leistungen"}`;
+        popoverMonthly.textContent = `${formatMoney(monthly)} €`;
+        popoverOnetime.textContent = `${formatMoney(onetime)} €`;
+        mobileMonthly.textContent = `${formatMoney(monthly)} €`;
+        mobileOnetime.textContent = `+ ${formatMoney(onetime)} € einmalig`;
+        mobileTotalLabel.textContent = `Monatlich · ${items.length} ${items.length === 1 ? "Leistung" : "Leistungen"}`;
+        mobileNext.disabled = items.length === 0;
+        mobileNext.textContent = items.length ? (checkout.hidden ? "Weiter" : "Zum Formular") : "Auswählen";
+        mobileTotal.disabled = items.length === 0;
+        mobileSheetMonthly.textContent = `${formatMoney(monthly)} €`;
+        mobileSheetOnetime.textContent = `${formatMoney(onetime)} €`;
+
+        mobileSheetItems.replaceChildren();
+        if (!items.length) {
+          const empty = document.createElement("p");
+          empty.className = "cart-empty";
+          empty.textContent = "Noch keine Leistung ausgewählt.";
+          mobileSheetItems.append(empty);
+        } else {
+          items.forEach(item => {
+            const row = document.createElement("div");
+            row.className = "mobile-sheet-row";
+            const name = document.createElement("span");
+            name.textContent = item.dataset.name;
+            const price = document.createElement("strong");
+            if (Number(item.dataset.monthly)) {
+              price.textContent = `${formatMoney(Number(item.dataset.monthly))} € / Monat`;
+            } else if (item.dataset.id === "website-development" && websiteWaived) {
+              price.textContent = "inklusive";
+            } else {
+              price.textContent = `${formatMoney(Number(item.dataset.onetime || 0))} €`;
+            }
+            row.append(name, price);
+            mobileSheetItems.append(row);
+          });
+        }
+        mobileSheetBenefits.replaceChildren();
+        if (discountPercent) {
+          const benefit = document.createElement("div");
+          benefit.className = "mobile-sheet-benefit";
+          benefit.textContent = `✓ ${discountPercent} % Monatsrabatt · ${formatMoney(monthlySaving)} € gespart`;
+          mobileSheetBenefits.append(benefit);
+        }
+        if (websiteWaived) {
+          const benefit = document.createElement("div");
+          benefit.className = "mobile-sheet-benefit";
+          benefit.textContent = "✓ Full-Stack Website inklusive · 7.499 € gespart";
+          mobileSheetBenefits.append(benefit);
+        }
+
+        items.forEach(item => {
+          const row = document.createElement("div");
+          row.className = "popover-item";
+          const name = document.createElement("span");
+          name.textContent = item.dataset.name;
+          const price = document.createElement("strong");
+          if (Number(item.dataset.monthly)) {
+            const adjusted = Number(item.dataset.monthly) * (1 - discountPercent / 100);
+            price.textContent = `${formatMoney(adjusted)} €`;
+          } else if (item.dataset.id === "website-development" && websiteWaived) {
+            price.textContent = "inklusive";
+          } else {
+            price.textContent = `${formatMoney(Number(item.dataset.onetime || 0))} €`;
+          }
+          row.append(name, price);
+          popoverItems.append(row);
+        });
+
+        checkoutSummaryItems.replaceChildren();
+        if (!items.length) {
+          const empty = document.createElement("p");
+          empty.className = "checkout-summary-empty";
+          empty.textContent = "Noch keine Leistung ausgewählt.";
+          checkoutSummaryItems.append(empty);
+        } else {
+          items.forEach(item => {
+            const row = document.createElement("div");
+            row.className = "checkout-summary-item";
+            const name = document.createElement("span");
+            name.textContent = item.dataset.name;
+            const price = document.createElement("strong");
+            if (Number(item.dataset.monthly)) {
+              const adjusted = Number(item.dataset.monthly) * (1 - discountPercent / 100);
+              price.textContent = `${formatMoney(adjusted)} € / Monat`;
+            } else if (item.dataset.id === "website-development" && websiteWaived) {
+              price.textContent = "0 €";
+            } else {
+              price.textContent = `${formatMoney(Number(item.dataset.onetime || 0))} €`;
+            }
+            row.append(name, price);
+            checkoutSummaryItems.append(row);
+          });
+          if (discountPercent) {
+            const benefit = document.createElement("div");
+            benefit.className = "checkout-benefit";
+            benefit.textContent = `✓ ${discountPercent} % Rabatt auf monatliche Leistungen`;
+            checkoutSummaryItems.append(benefit);
+          }
+          if (websiteWaived) {
+            const benefit = document.createElement("div");
+            benefit.className = "checkout-benefit";
+            benefit.textContent = "✓ Full-Stack Website inklusive · 7.499 € gespart";
+            checkoutSummaryItems.append(benefit);
+          }
+        }
+        checkoutMonthly.textContent = `${formatMoney(monthly)} €`;
+        checkoutOnetime.textContent = `${formatMoney(onetime)} €`;
+
+        cards.forEach(card => {
+          card.classList.toggle("has-selection", Boolean(card.querySelector('.option[aria-pressed="true"]')));
+        });
+
+        const overviewCounts = {
+          linkedin: items.filter(item => item.dataset.id === "linkedin-automation" || item.dataset.id === "content-calendar").length,
+          seo: items.filter(item => item.dataset.group === "seo").length,
+          website: items.filter(item => item.dataset.id === "website-development").length
+        };
+        overviewCards.forEach(card => {
+          const service = card.dataset.service;
+          const count = overviewCounts[service] || 0;
+          const status = card.querySelector(".overview-status");
+          const link = card.querySelector(".service-select-link");
+          card.classList.toggle("is-selected", count > 0);
+          if (service === "linkedin") status.textContent = count ? `${count} von 2 gewählt` : "Noch nicht ausgewählt";
+          else status.textContent = count ? "In Ihrer Auswahl" : "Noch nicht ausgewählt";
+          link.textContent = count ? "Auswahl ändern" : service === "seo" ? "SEO-Paket auswählen" : service === "website" ? "Website auswählen" : "LinkedIn auswählen";
+        });
+      };
+
+      options.forEach(option => {
+        option.addEventListener("click", () => {
+          const isActive = option.getAttribute("aria-pressed") === "true";
+          if (option.dataset.group) {
+            options
+              .filter(candidate => candidate.dataset.group === option.dataset.group)
+              .forEach(candidate => candidate.setAttribute("aria-pressed", "false"));
+          }
+          option.setAttribute("aria-pressed", String(!isActive));
+          render();
+        });
+      });
+
+      discountOptions.forEach(option => {
+        option.addEventListener("click", () => {
+          const isActive = option.getAttribute("aria-pressed") === "true";
+          option.setAttribute("aria-pressed", String(!isActive));
+          render();
+        });
+      });
+
+      continueButton.addEventListener("click", () => {
+        if (!currentState?.items.length) return;
+        checkout.hidden = false;
+        mobileBar.hidden = false;
+        mobileNext.textContent = "Zum Formular";
+        checkout.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      summaryEdit.addEventListener("click", () => {
+        document.getElementById("preise").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      mobileNext.addEventListener("click", () => {
+        if (!currentState?.items.length) return;
+        if (checkout.hidden) {
+          continueButton.click();
+          return;
+        }
+        document.getElementById("first-name").scrollIntoView({ behavior: "smooth", block: "center" });
+        document.getElementById("first-name").focus({ preventScroll: true });
+      });
+
+      mobileTotal.addEventListener("click", () => {
+        if (!currentState?.items.length) return;
+        const willOpen = mobilePriceSheet.hidden;
+        mobilePriceSheet.hidden = !willOpen;
+        mobileTotal.setAttribute("aria-expanded", String(willOpen));
+        document.body.style.overflow = willOpen ? "hidden" : "";
+      });
+      mobileTotal.setAttribute("aria-controls", "mobile-price-sheet");
+      mobileTotal.setAttribute("aria-expanded", "false");
+      mobileSheetClose.addEventListener("click", closeMobileSheet);
+      mobilePriceSheet.addEventListener("click", event => {
+        if (event.target === mobilePriceSheet) closeMobileSheet();
+      });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !mobilePriceSheet.hidden) closeMobileSheet();
+      });
+      checkoutForm.addEventListener("submit", async event => {
+        event.preventDefault();
+        formError.hidden = true;
+        if (!currentState?.items.length) {
+          formError.textContent = "Bitte wählen Sie zuerst mindestens eine Leistung.";
+          formError.hidden = false;
+          return;
+        }
+        if (!checkoutForm.reportValidity()) return;
+
+        const orderId = `DM-${new Date().toISOString().slice(0,10).replaceAll("-","")}-${crypto.getRandomValues(new Uint32Array(1))[0].toString(36).toUpperCase().slice(0,6)}`;
+        const customer = Object.fromEntries(new FormData(checkoutForm).entries());
+        const payload = {
+          orderId,
+          createdAt: new Date().toISOString(),
+          customer,
+          services: currentState.items.map(item => ({
+            id: item.dataset.id,
+            name: item.dataset.name,
+            monthly: Number(item.dataset.monthly || 0),
+            onetime: Number(item.dataset.onetime || 0)
+          })),
+          pricing: {
+            baseMonthly: currentState.baseMonthly,
+            discountPercent: currentState.discountPercent,
+            monthlySaving: currentState.monthlySaving,
+            monthlyTotal: currentState.monthly,
+            oneTimeBase: currentState.rawOnetime,
+            websiteWaived: currentState.websiteWaived,
+            oneTimeTotal: currentState.onetime
+          }
+        };
+
+        checkoutSubmit.disabled = true;
+        checkoutSubmit.textContent = "Bestellung wird gesendet …";
+        try {
+          if (!orderEndpoint) throw new Error("ORDER_ENDPOINT_MISSING");
+          await fetch(orderEndpoint, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload)
+          });
+          checkout.hidden = true;
+          mobileBar.hidden = true;
+          orderComplete = true;
+          closeMobileSheet();
+          confirmationOrder.textContent = `Bestellnummer ${orderId}`;
+          confirmation.hidden = false;
+          confirmation.scrollIntoView({ behavior: "smooth", block: "start" });
+        } catch (error) {
+          formError.textContent = error.message === "ORDER_ENDPOINT_MISSING"
+            ? "Der sichere E-Mail-Versand wird gerade verbunden. Die Bestellung wurde noch nicht gesendet."
+            : "Die Bestellung konnte nicht gesendet werden. Bitte versuchen Sie es erneut.";
+          formError.hidden = false;
+        } finally {
+          checkoutSubmit.disabled = false;
+          checkoutSubmit.textContent = "Bestellung absenden";
+        }
+      });
+
+      const masthead = document.getElementById("masthead");
+      const updateHeader = () => masthead.classList.toggle("scrolled", window.scrollY > 24);
+      updateHeader();
+      window.addEventListener("scroll", updateHeader, { passive: true });
+
+      document.querySelectorAll(".reveal").forEach(element => element.classList.add("visible"));
+
+      render();
+      if ("IntersectionObserver" in window) {
+        const mobileSectionObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.target.id === "preise") mobileVisibleSections.pricing = entry.isIntersecting;
+            if (entry.target.id === "leistungsumfang") mobileVisibleSections.overview = entry.isIntersecting;
+            if (entry.target.id === "checkout") mobileVisibleSections.checkout = entry.isIntersecting && !checkout.hidden;
+          });
+          document.body.classList.toggle("reading-overview", mobileVisibleSections.overview && !mobileVisibleSections.checkout);
+          syncMobileBarVisibility();
+        }, { threshold: .03 });
+        mobileSectionObserver.observe(document.getElementById("preise"));
+        mobileSectionObserver.observe(document.getElementById("leistungsumfang"));
+        mobileSectionObserver.observe(checkout);
+
+        const mobileNavLinks = [...document.querySelectorAll(".mobile-service-nav a")];
+        const serviceObserver = new IntersectionObserver(entries => {
+          const visible = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (!visible) return;
+          mobileNavLinks.forEach(link => {
+            const active = link.getAttribute("href") === `#${visible.target.id}`;
+            link.classList.toggle("active", active);
+            if (active) link.setAttribute("aria-current", "step");
+            else link.removeAttribute("aria-current");
+          });
+        }, { rootMargin: "-135px 0px -48% 0px", threshold: [0.1,.35,.65] });
+        document.querySelectorAll(".service-card[id]").forEach(card => serviceObserver.observe(card));
+      }
+    })();
+  </script>
+</body>
+</html>
