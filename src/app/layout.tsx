@@ -22,7 +22,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://digitalmovement.uk"),
+  metadataBase: new URL("https://collab.xn--digitalezahnrzte-6nb.de"),
   title: "Digitec × Digital Movement | Digitales Wachstum",
   description:
     "LinkedIn-Automatisierung, SEO & GEO und Website-Entwicklung für Dr. B.-DIGITEC – klar auswählen und direkt zusammenstellen.",
